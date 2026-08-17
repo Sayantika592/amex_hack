@@ -1,0 +1,49 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    environment:
+      AI_MODE: ${AI_MODE:-demo}
+      GRAPH_MODE: ${GRAPH_MODE:-memory}
+      QUEUE_MODE: ${QUEUE_MODE:-memory}
+      DATABASE_URL: ${DATABASE_URL:-sqlite:///var/dispute.db}
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+
+  # ---- optional production-grade services (enable with --profile full) ----
+  neo4j:
+    image: neo4j:5
+    profiles: ["full"]
+    environment:
+      NEO4J_AUTH: neo4j/password
+    ports: ["7474:7474", "7687:7687"]
+
+  postgres:
+    image: postgres:16
+    profiles: ["full"]
+    environment:
+      POSTGRES_USER: disputes
+      POSTGRES_PASSWORD: disputes
+      POSTGRES_DB: disputes
+    ports: ["5432:5432"]
+
+  kafka:
+    image: bitnami/kafka:3.7
+    profiles: ["full"]
+    environment:
+      KAFKA_CFG_NODE_ID: 0
+      KAFKA_CFG_PROCESS_ROLES: controller,broker
+      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 0@kafka:9093
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
+    ports: ["9092:9092"]

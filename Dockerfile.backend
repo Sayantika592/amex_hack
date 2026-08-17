@@ -1,0 +1,18 @@
+# Backend — full pipeline API in AI_MODE=demo (CPU-only, no model downloads).
+FROM python:3.12-slim
+
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+
+COPY backend/requirements.txt backend/requirements.txt
+RUN pip install --no-cache-dir -r backend/requirements.txt
+
+COPY . .
+
+# initialise schema + taxonomy + demo cases at build time so the image is
+# demo-ready; data can be regenerated inside the container at any point.
+RUN python -m backend.db.init && python -m backend.db.seed \
+    && python -m data.generate --count 100 --seed 42
+
+EXPOSE 8000
+CMD ["uvicorn", "backend.api.app:app", "--host", "0.0.0.0", "--port", "8000"]
