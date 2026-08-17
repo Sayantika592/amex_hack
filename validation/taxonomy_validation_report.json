@@ -1,0 +1,519 @@
+{
+  "generated_at": "2026-08-10T21:00:34.559324+00:00",
+  "source_excel": "/home/claude/dispute-resolution/config/taxonomy_source/Dispute_codes.xlsx",
+  "counts": {
+    "techdoc_types": 36,
+    "excel_taxonomy_sheet_types": 36,
+    "excel_all_internal_codes": 39,
+    "amex_network_codes": 28,
+    "visa_network_codes": 14,
+    "mc_network_codes": 12
+  },
+  "codes_in_techdoc": [
+    "AR-01",
+    "AR-02",
+    "AR-03",
+    "BA-01",
+    "BA-02",
+    "BA-03",
+    "BA-04",
+    "BA-05",
+    "BA-06",
+    "BA-07",
+    "BA-08",
+    "CR-01",
+    "CR-02",
+    "CR-03",
+    "CR-04",
+    "CR-05",
+    "CR-06",
+    "NR-01",
+    "NR-02",
+    "NR-03",
+    "NR-04",
+    "NR-05",
+    "QD-01",
+    "QD-02",
+    "QD-03",
+    "QD-04",
+    "QD-05",
+    "QD-06",
+    "SP-01",
+    "SP-02",
+    "SP-03",
+    "SP-04",
+    "SP-05",
+    "SP-06",
+    "SP-07",
+    "SP-08"
+  ],
+  "codes_in_excel": [
+    "AR-01",
+    "AR-02",
+    "AR-03",
+    "AR-04",
+    "AR-05",
+    "BA-01",
+    "BA-02",
+    "BA-03",
+    "BA-04",
+    "BA-05",
+    "BA-06",
+    "BA-07",
+    "BA-08",
+    "BA-09",
+    "CR-01",
+    "CR-02",
+    "CR-03",
+    "CR-04",
+    "CR-05",
+    "CR-06",
+    "NR-01",
+    "NR-02",
+    "NR-03",
+    "NR-04",
+    "NR-05",
+    "QD-01",
+    "QD-02",
+    "QD-03",
+    "QD-04",
+    "QD-05",
+    "QD-06",
+    "SP-01",
+    "SP-02",
+    "SP-03",
+    "SP-04",
+    "SP-05",
+    "SP-06",
+    "SP-07",
+    "SP-08"
+  ],
+  "codes_in_both": [
+    "AR-01",
+    "AR-02",
+    "AR-03",
+    "BA-01",
+    "BA-02",
+    "BA-03",
+    "BA-04",
+    "BA-05",
+    "BA-06",
+    "BA-07",
+    "BA-08",
+    "CR-01",
+    "CR-02",
+    "CR-03",
+    "CR-04",
+    "CR-05",
+    "CR-06",
+    "NR-01",
+    "NR-02",
+    "NR-03",
+    "NR-04",
+    "NR-05",
+    "QD-01",
+    "QD-02",
+    "QD-03",
+    "QD-04",
+    "QD-05",
+    "QD-06",
+    "SP-01",
+    "SP-02",
+    "SP-03",
+    "SP-04",
+    "SP-05",
+    "SP-06",
+    "SP-07",
+    "SP-08"
+  ],
+  "codes_only_in_techdoc": [],
+  "codes_only_in_excel": [
+    "AR-04",
+    "AR-05",
+    "BA-09"
+  ],
+  "network_reason_codes": {
+    "amex": [
+      "4507",
+      "4512",
+      "4513",
+      "4515",
+      "4516",
+      "4517",
+      "4521",
+      "4523",
+      "4527",
+      "4530",
+      "4534",
+      "4536",
+      "4540",
+      "4544",
+      "4553",
+      "4554",
+      "4750",
+      "4752",
+      "4754",
+      "4755",
+      "4763",
+      "4798",
+      "6003",
+      "6006",
+      "6008",
+      "6013",
+      "6014",
+      "6016"
+    ],
+    "visa": [
+      "10.1",
+      "11.1-11.3",
+      "12.1",
+      "12.3",
+      "12.5",
+      "12.6",
+      "13.1",
+      "13.2",
+      "13.3",
+      "13.4",
+      "13.5",
+      "13.6",
+      "13.7",
+      "13.9"
+    ],
+    "mastercard": [
+      "4808",
+      "4831",
+      "4834",
+      "4837",
+      "4846",
+      "4850",
+      "4853",
+      "4855",
+      "4859",
+      "4860",
+      "4863",
+      "6321"
+    ]
+  },
+  "one_to_many_mappings": [
+    {
+      "network": "amex",
+      "network_code": "4513",
+      "internal_codes": [
+        "BA-04",
+        "CR-01",
+        "SP-02"
+      ],
+      "description": "Credit Not Presented"
+    },
+    {
+      "network": "amex",
+      "network_code": "4544",
+      "internal_codes": [
+        "CR-03",
+        "CR-04"
+      ],
+      "description": "Cancellation Of Recurring Goods / Services"
+    },
+    {
+      "network": "amex",
+      "network_code": "4553",
+      "internal_codes": [
+        "QD-01",
+        "QD-02",
+        "QD-03",
+        "QD-04",
+        "QD-05",
+        "QD-06"
+      ],
+      "description": "Not As Described Or Defective Merchandise"
+    },
+    {
+      "network": "amex",
+      "network_code": "4554",
+      "internal_codes": [
+        "NR-01",
+        "NR-02",
+        "NR-03",
+        "NR-04",
+        "NR-05"
+      ],
+      "description": "Goods And Services Not Received"
+    },
+    {
+      "network": "visa",
+      "network_code": "13.1",
+      "internal_codes": [
+        "NR-01",
+        "NR-02",
+        "NR-03",
+        "NR-04",
+        "NR-05",
+        "SP-03"
+      ],
+      "description": ""
+    },
+    {
+      "network": "mastercard",
+      "network_code": "4853",
+      "internal_codes": [
+        "NR-01",
+        "NR-04",
+        "QD-01",
+        "QD-02",
+        "QD-03",
+        "QD-04",
+        "QD-05",
+        "QD-06",
+        "BA-04",
+        "CR-01",
+        "CR-02",
+        "CR-03",
+        "CR-04",
+        "CR-05",
+        "CR-06",
+        "SP-01",
+        "SP-03",
+        "SP-04",
+        "SP-05",
+        "SP-06",
+        "SP-07"
+      ],
+      "description": ""
+    },
+    {
+      "network": "mastercard",
+      "network_code": "4855",
+      "internal_codes": [
+        "NR-01",
+        "NR-03"
+      ],
+      "description": ""
+    },
+    {
+      "network": "visa",
+      "network_code": "13.3",
+      "internal_codes": [
+        "QD-01",
+        "QD-02",
+        "QD-03",
+        "QD-05",
+        "QD-06",
+        "SP-02"
+      ],
+      "description": ""
+    },
+    {
+      "network": "mastercard",
+      "network_code": "4834",
+      "internal_codes": [
+        "BA-01",
+        "BA-05"
+      ],
+      "description": ""
+    },
+    {
+      "network": "visa",
+      "network_code": "12.5",
+      "internal_codes": [
+        "BA-02",
+        "BA-06"
+      ],
+      "description": ""
+    },
+    {
+      "network": "mastercard",
+      "network_code": "4831",
+      "internal_codes": [
+        "BA-02",
+        "BA-03"
+      ],
+      "description": ""
+    },
+    {
+      "network": "visa",
+      "network_code": "13.2",
+      "internal_codes": [
+        "BA-03",
+        "CR-03",
+        "CR-04"
+      ],
+      "description": ""
+    },
+    {
+      "network": "visa",
+      "network_code": "13.7",
+      "internal_codes": [
+        "CR-01",
+        "CR-02",
+        "CR-05",
+        "CR-06",
+        "SP-03"
+      ],
+      "description": ""
+    },
+    {
+      "network": "mastercard",
+      "network_code": "4859",
+      "internal_codes": [
+        "CR-05",
+        "SP-02",
+        "SP-08"
+      ],
+      "description": ""
+    },
+    {
+      "network": "visa",
+      "network_code": "13.5",
+      "internal_codes": [
+        "SP-04",
+        "SP-06",
+        "SP-07"
+      ],
+      "description": ""
+    }
+  ],
+  "many_to_one_mappings": [
+    {
+      "internal_code": "NR-01",
+      "network": "mastercard",
+      "network_codes": [
+        "4853",
+        "4855"
+      ]
+    },
+    {
+      "internal_code": "BA-01",
+      "network": "amex",
+      "network_codes": [
+        "4512",
+        "4534"
+      ]
+    },
+    {
+      "internal_code": "BA-04",
+      "network": "mastercard",
+      "network_codes": [
+        "4853",
+        "4860"
+      ]
+    },
+    {
+      "internal_code": "CR-05",
+      "network": "mastercard",
+      "network_codes": [
+        "4853",
+        "4859"
+      ]
+    },
+    {
+      "internal_code": "AR-01",
+      "network": "mastercard",
+      "network_codes": [
+        "4863",
+        "6321"
+      ]
+    },
+    {
+      "internal_code": "AR-02",
+      "network": "amex",
+      "network_codes": [
+        "4521",
+        "4755"
+      ]
+    },
+    {
+      "internal_code": "AR-03",
+      "network": "amex",
+      "network_codes": [
+        "4523",
+        "4527"
+      ]
+    },
+    {
+      "internal_code": "SP-03",
+      "network": "visa",
+      "network_codes": [
+        "13.1",
+        "13.7"
+      ]
+    }
+  ],
+  "unresolved_discrepancies": {
+    "excel_only_internal_codes": [
+      "AR-04",
+      "AR-05",
+      "BA-09"
+    ],
+    "amex_codes_with_no_internal_mapping": [
+      {
+        "network_code": "4516",
+        "description": "Request For Support Not Fulfilled",
+        "excel_category": "Process",
+        "raw_internal_field": "N/A \u2014 escalation trigger",
+        "resolution_approach": "Merchant failed to respond; auto-favor cardholder per network rules"
+      },
+      {
+        "network_code": "4517",
+        "description": "Request For Support Illegible / Incomplete",
+        "excel_category": "Process",
+        "raw_internal_field": "N/A \u2014 escalation trigger",
+        "resolution_approach": "Merchant provided insufficient docs; auto-favor cardholder per network rules"
+      },
+      {
+        "network_code": "6003",
+        "description": "Retrieval Request: Issuer requires to validate claims",
+        "excel_category": "Retrieval",
+        "raw_internal_field": "",
+        "resolution_approach": "Provide signed receipt, booking confirmation, or delivery proof"
+      },
+      {
+        "network_code": "6006",
+        "description": "Retrieval Request: Legal Request or Fraud Analysis",
+        "excel_category": "Retrieval",
+        "raw_internal_field": "",
+        "resolution_approach": "Provide itemized receipt, delivery proof, or legal records"
+      },
+      {
+        "network_code": "6008",
+        "description": "Retrieval Request: Card Member requests copy bearing signature",
+        "excel_category": "Retrieval",
+        "raw_internal_field": "",
+        "resolution_approach": "Provide signed receipt or policy details"
+      },
+      {
+        "network_code": "6013",
+        "description": "Retrieval Request: Repeat Request",
+        "excel_category": "Retrieval",
+        "raw_internal_field": "",
+        "resolution_approach": "Refer to original Retrieval Request documentation"
+      },
+      {
+        "network_code": "6014",
+        "description": "Retrieval Request: Card Member does not recognise Transaction",
+        "excel_category": "Retrieval",
+        "raw_internal_field": "",
+        "resolution_approach": "Provide signed receipt, delivery proof, or IP address"
+      },
+      {
+        "network_code": "6016",
+        "description": "Retrieval Request: Card Member needs for personal records",
+        "excel_category": "Retrieval",
+        "raw_internal_field": "",
+        "resolution_approach": "Provide itemized receipt or policy details"
+      }
+    ],
+    "techdoc_types_with_no_amex_code_in_excel": [
+      "BA-06",
+      "BA-07",
+      "CR-02",
+      "CR-05",
+      "CR-06",
+      "SP-03",
+      "SP-04",
+      "SP-05",
+      "SP-06",
+      "SP-08"
+    ]
+  },
+  "resolution_policy": "Both taxonomies are preserved verbatim. The registry represents Excel-only internal codes (flagged in_techdoc=false) so the pipeline can process any Amex reason code in the workbook. Amex codes that map to no internal type (Process 4516/4517, Retrieval 6003-6016) are handled as escalation / retrieval triggers, not classifiable dispute categories. Types the Excel lists as 'TBD/N/A' for Amex still resolve on Visa/Mastercard and route to the closest Amex family code at filing time with an analyst note."
+}
