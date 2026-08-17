@@ -1,0 +1,36 @@
+# Layer 6/8 thresholds. Final score: -1.0 favours merchant ... +1.0 favours card member.
+score_bands:
+  favor_cardholder_high: 0.7      # auto-resolve, high confidence
+  favor_cardholder: 0.3           # auto-resolve with explanation + easy escalation
+  escalation_low: -0.3            # -0.3..+0.3 -> human analyst
+  favor_merchant: -0.7            # auto-resolve with explanation (represent path)
+integrity:
+  suspicion_flag: 0.5             # advisory only: flag -> analyst, NEVER auto-deny
+evidence:
+  min_completeness: 0.6           # below this -> request_more_evidence
+merchant_history:
+  weight_cap: 0.10                # symmetric, tie-breaker only (never decides a case)
+retraining:
+  accuracy_floor: 0.85            # weekly report triggers retraining below this
+# Conclusive-evidence rule: when a single verified fact is dispositive for the
+# category, it sets a minimum decision magnitude in its direction and lifts the
+# evidence-completeness gate (the remaining evidence cannot overturn the fact).
+conclusive_floors:
+  duplicate_within_5_min: 0.72            # + card member
+  cancellation_confirmed_before_charge: 0.62
+  logs_show_no_access_or_delivery: 0.58
+  merchant_promised_refund_in_writing: 0.55
+  atm_short_dispense: 0.65
+  charge_exceeds_authorization: 0.60
+  access_logs_show_usage: -0.62           # - merchant
+  atm_full_dispense_logged: -0.60
+  cancellation_after_charge: -0.50
+  charge_matches_authorization: -0.45
+  delivered_signed_correct_address: -0.45 # dispositive only for NR categories
+  installment_terms_mismatch: 0.60
+  installment_terms_match: -0.45
+  gateway_posting_error: 0.62
+  partial_fulfillment_confirmed: 0.55
+  full_fulfillment_confirmed: -0.45
+  image_confirms_wrong_item: 0.55
+conclusive_delivery_categories: [NR-01, NR-05, CR-06]

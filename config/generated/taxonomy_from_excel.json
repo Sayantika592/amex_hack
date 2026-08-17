@@ -1,0 +1,1019 @@
+{
+  "types": {
+    "NR-01": {
+      "code": "NR-01",
+      "name": "Goods Not Received (Full)",
+      "description": "Cardholder ordered physical goods and claims they never arrived. The entire order is missing.",
+      "key_evidence": "Shipping tracking, carrier delivery scan, GPS delivery coordinates, signature/photo proof, cardholder address verification",
+      "auto_fetch_sources": "Carrier tracking API (FedEx/UPS/USPS/DHL), merchant order management system, address verification service",
+      "amex_codes": [
+        "4554"
+      ],
+      "visa_codes": [
+        "13.1"
+      ],
+      "mc_codes": [
+        "4853",
+        "4855"
+      ],
+      "section": "A. NON-RECEIPT & DELIVERY ISSUES"
+    },
+    "NR-02": {
+      "code": "NR-02",
+      "name": "Goods Partially Received",
+      "description": "Cardholder received only some items from a multi-item order. Specific items are missing from the shipment.",
+      "key_evidence": "Packing slip vs. order manifest, shipment weight comparison, warehouse pick/pack records, split-shipment tracking",
+      "auto_fetch_sources": "Warehouse management system, multi-package tracking, order line-item data",
+      "amex_codes": [
+        "4554"
+      ],
+      "visa_codes": [
+        "13.1"
+      ],
+      "mc_codes": [],
+      "section": "A. NON-RECEIPT & DELIVERY ISSUES"
+    },
+    "NR-03": {
+      "code": "NR-03",
+      "name": "Services Not Rendered",
+      "description": "Cardholder paid for a service (consulting, repair, event, class, etc.) that was never performed or provided.",
+      "key_evidence": "Service appointment records, contractor/provider logs, check-in records, service completion confirmation",
+      "auto_fetch_sources": "Merchant booking/scheduling system, service provider records, attendance logs",
+      "amex_codes": [
+        "4554"
+      ],
+      "visa_codes": [
+        "13.1"
+      ],
+      "mc_codes": [
+        "4855"
+      ],
+      "section": "A. NON-RECEIPT & DELIVERY ISSUES"
+    },
+    "NR-04": {
+      "code": "NR-04",
+      "name": "Digital Goods Not Delivered",
+      "description": "Cardholder paid for digital content (software, download, game, ebook, course access) but never received access or the download link.",
+      "key_evidence": "Download/access logs, email delivery records, account provisioning timestamps, IP/device login data",
+      "auto_fetch_sources": "Digital delivery platform logs, email service provider delivery status, license key generation records",
+      "amex_codes": [
+        "4554"
+      ],
+      "visa_codes": [
+        "13.1"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "A. NON-RECEIPT & DELIVERY ISSUES"
+    },
+    "NR-05": {
+      "code": "NR-05",
+      "name": "Late Delivery Beyond Promised Date",
+      "description": "Goods arrived but significantly after the promised delivery date, making them useless for the intended purpose (e.g., event decorations arriving after the event).",
+      "key_evidence": "Original delivery promise (order confirmation), actual delivery date, communication about delays, merchant's delivery guarantee policy",
+      "auto_fetch_sources": "Order confirmation email, carrier tracking timeline, merchant ToS on delivery guarantees",
+      "amex_codes": [
+        "4554"
+      ],
+      "visa_codes": [
+        "13.1"
+      ],
+      "mc_codes": [],
+      "section": "A. NON-RECEIPT & DELIVERY ISSUES"
+    },
+    "QD-01": {
+      "code": "QD-01",
+      "name": "Goods Damaged on Arrival",
+      "description": "Cardholder received goods that were physically damaged during shipping \u2014 dents, cracks, broken parts, water damage, etc.",
+      "key_evidence": "Photos of damaged item AND packaging, product listing images for comparison, merchant packaging standards, carrier damage claim",
+      "auto_fetch_sources": "Image analysis (CLIP + BLIP-2), product listing scraper, carrier claims API, merchant QC records",
+      "amex_codes": [
+        "4553"
+      ],
+      "visa_codes": [
+        "13.3"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "B. QUALITY & DESCRIPTION ISSUES"
+    },
+    "QD-02": {
+      "code": "QD-02",
+      "name": "Goods Defective / Not Working",
+      "description": "Item arrived intact but doesn't function as intended \u2014 electronics won't power on, software crashes, mechanical parts fail, etc.",
+      "key_evidence": "Cardholder description of defect, product specs vs. actual behavior, warranty status, manufacturer defect reports, repair attempts",
+      "auto_fetch_sources": "Product database for specs, warranty registration system, manufacturer recall/defect databases",
+      "amex_codes": [
+        "4553"
+      ],
+      "visa_codes": [
+        "13.3"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "B. QUALITY & DESCRIPTION ISSUES"
+    },
+    "QD-03": {
+      "code": "QD-03",
+      "name": "Goods Not As Described",
+      "description": "Item received differs materially from the listing/description \u2014 wrong color, size, model, features, materials, or specifications.",
+      "key_evidence": "Original product listing (cached/scraped), photos of received item, order confirmation details, merchant product specs page",
+      "auto_fetch_sources": "Product listing scraper/cache, order confirmation data, image comparison (CLIP), merchant catalog API",
+      "amex_codes": [
+        "4553"
+      ],
+      "visa_codes": [
+        "13.3"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "B. QUALITY & DESCRIPTION ISSUES"
+    },
+    "QD-04": {
+      "code": "QD-04",
+      "name": "Counterfeit / Inauthentic Goods",
+      "description": "Cardholder claims the received product is a counterfeit or replica when an authentic branded item was advertised and paid for.",
+      "key_evidence": "Photos showing authenticity markers (labels, serial numbers, packaging), brand verification, merchant sourcing documentation",
+      "auto_fetch_sources": "Brand authentication databases, image analysis for authenticity markers, merchant supplier documentation",
+      "amex_codes": [
+        "4553"
+      ],
+      "visa_codes": [
+        "13.4"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "B. QUALITY & DESCRIPTION ISSUES"
+    },
+    "QD-05": {
+      "code": "QD-05",
+      "name": "Wrong Item Sent",
+      "description": "Merchant shipped an entirely different product than what was ordered \u2014 e.g., ordered a laptop, received a tablet.",
+      "key_evidence": "Order confirmation vs. received item photos, packing slip, shipping label details, merchant inventory/pick records",
+      "auto_fetch_sources": "Order management system, warehouse pick records, product image comparison",
+      "amex_codes": [
+        "4553"
+      ],
+      "visa_codes": [
+        "13.3"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "B. QUALITY & DESCRIPTION ISSUES"
+    },
+    "QD-06": {
+      "code": "QD-06",
+      "name": "Quality Unacceptable / Below Standard",
+      "description": "Item matches the general description but quality is far below reasonable expectations \u2014 e.g., a '100% wool' sweater that pills immediately.",
+      "key_evidence": "Product listing claims, cardholder evidence of quality issues, industry standards for product type, merchant return policy, reviews",
+      "auto_fetch_sources": "Product listing data, review aggregation, industry quality standards databases",
+      "amex_codes": [
+        "4553"
+      ],
+      "visa_codes": [
+        "13.3"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "B. QUALITY & DESCRIPTION ISSUES"
+    },
+    "BA-01": {
+      "code": "BA-01",
+      "name": "Duplicate Charge",
+      "description": "Cardholder was charged two or more times for a single transaction/purchase.",
+      "key_evidence": "Transaction logs with timestamps, receipt/invoice for original charge, merchant POS/payment gateway logs",
+      "auto_fetch_sources": "Transaction history API, payment gateway duplicate detection, merchant POS records",
+      "amex_codes": [
+        "4512",
+        "4534"
+      ],
+      "visa_codes": [
+        "12.6"
+      ],
+      "mc_codes": [
+        "4834"
+      ],
+      "section": "C. BILLING & AMOUNT ISSUES"
+    },
+    "BA-02": {
+      "code": "BA-02",
+      "name": "Incorrect Amount Charged",
+      "description": "The amount charged differs from the agreed price \u2014 overcharge, undercharge that was later 'corrected' without consent, or wrong currency conversion.",
+      "key_evidence": "Original receipt/quote/price listing, transaction amount, agreed price evidence, currency conversion records",
+      "auto_fetch_sources": "POS receipt data, merchant pricing database, currency exchange rate at transaction time",
+      "amex_codes": [
+        "4507"
+      ],
+      "visa_codes": [
+        "12.5"
+      ],
+      "mc_codes": [
+        "4831"
+      ],
+      "section": "C. BILLING & AMOUNT ISSUES"
+    },
+    "BA-03": {
+      "code": "BA-03",
+      "name": "Paid by Other Means",
+      "description": "Cardholder claims they paid for the same transaction using a different payment method (cash, another card, bank transfer) but were still charged on Amex.",
+      "key_evidence": "Alternative payment receipt/proof, merchant payment records across all channels, transaction reconciliation",
+      "auto_fetch_sources": "Merchant multi-channel payment records, bank transfer confirmations, POS multi-tender logs",
+      "amex_codes": [
+        "4515"
+      ],
+      "visa_codes": [
+        "13.2"
+      ],
+      "mc_codes": [
+        "4831"
+      ],
+      "section": "C. BILLING & AMOUNT ISSUES"
+    },
+    "BA-04": {
+      "code": "BA-04",
+      "name": "Credit/Refund Not Processed",
+      "description": "Merchant promised or issued a refund/credit, but it never appeared on the cardholder's statement.",
+      "key_evidence": "Refund promise evidence (email, chat, receipt), merchant refund processing records, time elapsed since promise, return tracking if applicable",
+      "auto_fetch_sources": "Merchant refund transaction logs, communication records, return shipment tracking",
+      "amex_codes": [
+        "4513"
+      ],
+      "visa_codes": [
+        "13.6"
+      ],
+      "mc_codes": [
+        "4853",
+        "4860"
+      ],
+      "section": "C. BILLING & AMOUNT ISSUES"
+    },
+    "BA-05": {
+      "code": "BA-05",
+      "name": "Credit Posted as Charge",
+      "description": "A transaction that should have been processed as a credit/refund was incorrectly posted as a charge, effectively double-charging the cardholder.",
+      "key_evidence": "Merchant processing records, original refund authorization, payment gateway transaction type logs",
+      "auto_fetch_sources": "Payment gateway logs, merchant accounting records",
+      "amex_codes": [
+        "4752"
+      ],
+      "visa_codes": [
+        "12.1"
+      ],
+      "mc_codes": [
+        "4834"
+      ],
+      "section": "C. BILLING & AMOUNT ISSUES"
+    },
+    "BA-06": {
+      "code": "BA-06",
+      "name": "Charge Amount Exceeds Authorization",
+      "description": "The amount actually charged is higher than what the cardholder originally authorized (e.g., tip added incorrectly, hotel incidentals inflated).",
+      "key_evidence": "Original authorization amount, final charged amount, authorization logs, signed receipt if card-present",
+      "auto_fetch_sources": "Authorization records API, POS terminal logs, signed receipt images",
+      "amex_codes": [],
+      "visa_codes": [
+        "12.5"
+      ],
+      "mc_codes": [],
+      "section": "C. BILLING & AMOUNT ISSUES"
+    },
+    "BA-07": {
+      "code": "BA-07",
+      "name": "Installment Billing Dispute",
+      "description": "Cardholder disputes the number of installments, installment amount, or the fact that a purchase was converted to installments without consent.",
+      "key_evidence": "Installment agreement, original transaction terms, payment schedule, cardholder consent records",
+      "auto_fetch_sources": "Installment plan records, merchant ToS, payment schedule API",
+      "amex_codes": [],
+      "visa_codes": [],
+      "mc_codes": [
+        "4850"
+      ],
+      "section": "C. BILLING & AMOUNT ISSUES"
+    },
+    "BA-08": {
+      "code": "BA-08",
+      "name": "Currency / Conversion Dispute",
+      "description": "Cardholder disputes the currency in which the transaction was processed or claims an unfavorable/unauthorized currency conversion was applied.",
+      "key_evidence": "Transaction currency vs. cardholder's home currency, DCC (Dynamic Currency Conversion) consent, exchange rate at time of purchase",
+      "auto_fetch_sources": "Currency exchange rate APIs, DCC records, POS currency selection logs",
+      "amex_codes": [
+        "4530"
+      ],
+      "visa_codes": [
+        "12.3"
+      ],
+      "mc_codes": [
+        "4846"
+      ],
+      "section": "C. BILLING & AMOUNT ISSUES"
+    },
+    "CR-01": {
+      "code": "CR-01",
+      "name": "Goods Returned but No Refund",
+      "description": "Cardholder returned merchandise per the merchant's return policy, but the refund was never processed.",
+      "key_evidence": "Return shipment tracking, delivery confirmation to merchant, merchant return policy, return authorization (RMA), communication about refund timeline",
+      "auto_fetch_sources": "Return shipment carrier tracking, merchant RMA system, refund processing logs",
+      "amex_codes": [
+        "4513"
+      ],
+      "visa_codes": [
+        "13.7"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "D. CANCELLATION, RETURN & RECURRING BILLING ISSUES"
+    },
+    "CR-02": {
+      "code": "CR-02",
+      "name": "Goods/Services Cancelled but Still Charged",
+      "description": "Cardholder cancelled an order for goods or services before delivery/performance, but was still charged.",
+      "key_evidence": "Cancellation confirmation (email, order status), cancellation timestamp vs. charge timestamp, merchant cancellation policy, order status records",
+      "auto_fetch_sources": "Merchant order management system, cancellation confirmation emails, merchant cancellation policy",
+      "amex_codes": [],
+      "visa_codes": [
+        "13.7"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "D. CANCELLATION, RETURN & RECURRING BILLING ISSUES"
+    },
+    "CR-03": {
+      "code": "CR-03",
+      "name": "Cancelled Recurring / Subscription Billing",
+      "description": "Cardholder cancelled a recurring subscription or membership but continues to be charged in subsequent billing cycles.",
+      "key_evidence": "Cancellation confirmation, cancellation date vs. charge dates, merchant cancellation policy, account login activity post-cancellation, merchant ToS",
+      "auto_fetch_sources": "Merchant subscription management system, cancellation records, account activity logs, billing system records",
+      "amex_codes": [
+        "4544"
+      ],
+      "visa_codes": [
+        "13.2"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "D. CANCELLATION, RETURN & RECURRING BILLING ISSUES"
+    },
+    "CR-04": {
+      "code": "CR-04",
+      "name": "Free Trial Converted to Paid Without Consent",
+      "description": "Cardholder signed up for a free trial that auto-converted to a paid subscription without adequate notice or explicit consent.",
+      "key_evidence": "Original trial sign-up terms, trial-to-paid notification evidence, opt-in/consent records, cardholder communication history",
+      "auto_fetch_sources": "Merchant trial conversion records, email notification logs, sign-up flow screenshots/ToS",
+      "amex_codes": [
+        "4544"
+      ],
+      "visa_codes": [
+        "13.2"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "D. CANCELLATION, RETURN & RECURRING BILLING ISSUES"
+    },
+    "CR-05": {
+      "code": "CR-05",
+      "name": "Hotel No-Show / Cancelled Reservation",
+      "description": "Cardholder was charged a no-show fee or deposit for a hotel/car rental reservation they believe they cancelled in time, or the cancellation policy was unclear.",
+      "key_evidence": "Reservation confirmation, cancellation policy disclosed at booking, cancellation confirmation (if any), hotel/rental company records",
+      "auto_fetch_sources": "Hotel/rental booking system, cancellation policy records, communication logs",
+      "amex_codes": [],
+      "visa_codes": [
+        "13.7"
+      ],
+      "mc_codes": [
+        "4853",
+        "4859"
+      ],
+      "section": "D. CANCELLATION, RETURN & RECURRING BILLING ISSUES"
+    },
+    "CR-06": {
+      "code": "CR-06",
+      "name": "Goods Refused at Delivery",
+      "description": "Cardholder refused to accept delivery of goods (e.g., visibly damaged box, wrong item evident from outside), but was still charged.",
+      "key_evidence": "Carrier return-to-sender records, refusal notation on tracking, merchant receipt of returned goods",
+      "auto_fetch_sources": "Carrier tracking with refusal status, merchant receiving records",
+      "amex_codes": [],
+      "visa_codes": [
+        "13.7"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "D. CANCELLATION, RETURN & RECURRING BILLING ISSUES"
+    },
+    "AR-01": {
+      "code": "AR-01",
+      "name": "Unrecognized Charge (Not Fraud)",
+      "description": "Cardholder does not recognize a charge on their statement but it may be a legitimate purchase they forgot, a DBA name mismatch, or a family member's purchase. Distinct from fraud \u2014 the card was not stolen.",
+      "key_evidence": "Transaction details, merchant DBA name mapping, cardholder purchase history, device/IP data for online transactions",
+      "auto_fetch_sources": "Merchant DBA registry, transaction metadata, cardholder purchase history",
+      "amex_codes": [
+        "4540"
+      ],
+      "visa_codes": [],
+      "mc_codes": [
+        "4863",
+        "6321"
+      ],
+      "section": "E. AUTHORIZATION & RECOGNITION ISSUES (NON-FRAUD)"
+    },
+    "AR-02": {
+      "code": "AR-02",
+      "name": "Authorization Not Obtained",
+      "description": "Transaction was processed without obtaining proper authorization from the issuer, or authorization was obtained but had expired before the charge was submitted.",
+      "key_evidence": "Authorization logs, authorization timestamp vs. submission timestamp, issuer authorization records",
+      "auto_fetch_sources": "Authorization network records, merchant POS authorization logs",
+      "amex_codes": [
+        "4521",
+        "4755"
+      ],
+      "visa_codes": [
+        "11.1-11.3"
+      ],
+      "mc_codes": [
+        "4808"
+      ],
+      "section": "E. AUTHORIZATION & RECOGNITION ISSUES (NON-FRAUD)"
+    },
+    "AR-03": {
+      "code": "AR-03",
+      "name": "Transaction Not Recognized (Card-Present Dispute)",
+      "description": "Cardholder disputes a card-present transaction, claiming they were at the merchant's location but did not make this specific charge (e.g., different amount, tip added without consent).",
+      "key_evidence": "POS terminal records, signed receipt, EMV chip data, CCTV (if applicable), itemized receipt",
+      "auto_fetch_sources": "POS transaction logs, receipt images, EMV transaction certificates",
+      "amex_codes": [
+        "4523",
+        "4527"
+      ],
+      "visa_codes": [
+        "10.1"
+      ],
+      "mc_codes": [
+        "4837"
+      ],
+      "section": "E. AUTHORIZATION & RECOGNITION ISSUES (NON-FRAUD)"
+    },
+    "SP-01": {
+      "code": "SP-01",
+      "name": "Vehicle Rental Damage/Theft/Loss",
+      "description": "Cardholder disputes charges related to alleged vehicle damage, theft, or loss-of-use fees from a car rental company.",
+      "key_evidence": "Rental agreement, vehicle inspection reports (before/after), photos of alleged damage, insurance coverage, damage repair estimates",
+      "auto_fetch_sources": "Rental company records, inspection photo comparison, insurance verification, repair shop estimates",
+      "amex_codes": [
+        "4750"
+      ],
+      "visa_codes": [],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "F. SPECIAL & INDUSTRY-SPECIFIC DISPUTES"
+    },
+    "SP-02": {
+      "code": "SP-02",
+      "name": "Hotel/Lodging Incidental Charges",
+      "description": "Cardholder disputes add-on charges from a hotel stay \u2014 minibar, pay-per-view, resort fees, room damage charges \u2014 claiming they are unauthorized or inflated.",
+      "key_evidence": "Itemized hotel folio, signed guest registration, hotel's incidental charge policy, room inspection records",
+      "auto_fetch_sources": "Hotel PMS (property management system), guest folio data, room inspection logs",
+      "amex_codes": [
+        "4513"
+      ],
+      "visa_codes": [
+        "13.3"
+      ],
+      "mc_codes": [
+        "4859"
+      ],
+      "section": "F. SPECIAL & INDUSTRY-SPECIFIC DISPUTES"
+    },
+    "SP-03": {
+      "code": "SP-03",
+      "name": "Airline / Travel Service Dispute",
+      "description": "Cardholder disputes charges related to flights (cancellation fees, baggage fees, seat upgrade charges, no-show fees) or travel services not rendered.",
+      "key_evidence": "Booking confirmation, airline cancellation policy, boarding records, baggage tracking, cardholder communication with airline",
+      "auto_fetch_sources": "Airline reservation system, boarding pass scan records, baggage tracking system",
+      "amex_codes": [],
+      "visa_codes": [
+        "13.1",
+        "13.7"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "F. SPECIAL & INDUSTRY-SPECIFIC DISPUTES"
+    },
+    "SP-04": {
+      "code": "SP-04",
+      "name": "Timeshare / Vacation Club Dispute",
+      "description": "Cardholder disputes charges from timeshare companies \u2014 maintenance fees, special assessments, misrepresented vacation packages, or denied cancellation within the rescission period.",
+      "key_evidence": "Timeshare contract, rescission period terms, maintenance fee schedule, cardholder cancellation attempts, marketing materials vs. actual offering",
+      "auto_fetch_sources": "Timeshare contract records, state rescission period laws, communication logs",
+      "amex_codes": [],
+      "visa_codes": [
+        "13.5"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "F. SPECIAL & INDUSTRY-SPECIFIC DISPUTES"
+    },
+    "SP-05": {
+      "code": "SP-05",
+      "name": "Insurance-Covered Charge",
+      "description": "Cardholder claims the charge should have been covered by insurance (travel insurance, health insurance, rental insurance) rather than billed to their card.",
+      "key_evidence": "Insurance policy details, claim filed with insurer, insurer response/denial, merchant billing records",
+      "auto_fetch_sources": "Insurance claim records, policy verification",
+      "amex_codes": [],
+      "visa_codes": [],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "F. SPECIAL & INDUSTRY-SPECIFIC DISPUTES"
+    },
+    "SP-06": {
+      "code": "SP-06",
+      "name": "Introductory Offer / Promotional Terms Dispute",
+      "description": "Cardholder claims they were charged full price when a promotional/introductory rate should have applied, or that promotional terms were misrepresented.",
+      "key_evidence": "Promotional offer terms, sign-up confirmation, pricing at time of purchase, merchant promotional records",
+      "auto_fetch_sources": "Merchant promotional campaign records, sign-up flow data, pricing engine records",
+      "amex_codes": [],
+      "visa_codes": [
+        "13.5"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "F. SPECIAL & INDUSTRY-SPECIFIC DISPUTES"
+    },
+    "SP-07": {
+      "code": "SP-07",
+      "name": "Misrepresentation / False Advertising",
+      "description": "Cardholder claims the merchant misrepresented the terms of sale, used deceptive marketing, or engaged in bait-and-switch tactics.",
+      "key_evidence": "Marketing materials/ads at time of purchase, product listing, actual terms delivered, cardholder communication, merchant ToS",
+      "auto_fetch_sources": "Cached marketing pages (Wayback Machine), product listing snapshots, advertising campaign records",
+      "amex_codes": [
+        "4754"
+      ],
+      "visa_codes": [
+        "13.5"
+      ],
+      "mc_codes": [
+        "4853"
+      ],
+      "section": "F. SPECIAL & INDUSTRY-SPECIFIC DISPUTES"
+    },
+    "SP-08": {
+      "code": "SP-08",
+      "name": "ATM / Cash Dispensing Dispute",
+      "description": "Cardholder claims they did not receive cash (or received partial amount) from an ATM withdrawal that was charged to their card.",
+      "key_evidence": "ATM transaction logs, ATM camera footage, ATM reconciliation records, cash cassette balance",
+      "auto_fetch_sources": "ATM network records, ATM journal logs, surveillance system",
+      "amex_codes": [],
+      "visa_codes": [
+        "13.9"
+      ],
+      "mc_codes": [
+        "4859"
+      ],
+      "section": "F. SPECIAL & INDUSTRY-SPECIFIC DISPUTES"
+    }
+  },
+  "weight_profiles": {
+    "NR": {
+      "delivery_proof": 0.35,
+      "product_condition": 0.05,
+      "transaction_pattern": 0.05,
+      "merchant_documentation": 0.15,
+      "cardholder_documentation": 0.1,
+      "communication_records": 0.05,
+      "historical_pattern": 0.1,
+      "policy_compliance": 0.05,
+      "digital_access_logs": 0.05,
+      "image_visual_analysis": 0.05
+    },
+    "QD": {
+      "delivery_proof": 0.1,
+      "product_condition": 0.3,
+      "transaction_pattern": 0.05,
+      "merchant_documentation": 0.15,
+      "cardholder_documentation": 0.15,
+      "communication_records": 0.05,
+      "historical_pattern": 0.05,
+      "policy_compliance": 0.05,
+      "digital_access_logs": 0.0,
+      "image_visual_analysis": 0.1
+    },
+    "BA_DUP": {
+      "delivery_proof": 0.05,
+      "product_condition": 0.05,
+      "transaction_pattern": 0.4,
+      "merchant_documentation": 0.15,
+      "cardholder_documentation": 0.1,
+      "communication_records": 0.05,
+      "historical_pattern": 0.1,
+      "policy_compliance": 0.05,
+      "digital_access_logs": 0.0,
+      "image_visual_analysis": 0.05
+    },
+    "BA_AMT": {
+      "delivery_proof": 0.05,
+      "product_condition": 0.05,
+      "transaction_pattern": 0.2,
+      "merchant_documentation": 0.2,
+      "cardholder_documentation": 0.15,
+      "communication_records": 0.1,
+      "historical_pattern": 0.1,
+      "policy_compliance": 0.05,
+      "digital_access_logs": 0.0,
+      "image_visual_analysis": 0.1
+    },
+    "CR_RET": {
+      "delivery_proof": 0.15,
+      "product_condition": 0.1,
+      "transaction_pattern": 0.05,
+      "merchant_documentation": 0.15,
+      "cardholder_documentation": 0.15,
+      "communication_records": 0.1,
+      "historical_pattern": 0.1,
+      "policy_compliance": 0.1,
+      "digital_access_logs": 0.0,
+      "image_visual_analysis": 0.1
+    },
+    "CR_SUB": {
+      "delivery_proof": 0.05,
+      "product_condition": 0.05,
+      "transaction_pattern": 0.1,
+      "merchant_documentation": 0.15,
+      "cardholder_documentation": 0.15,
+      "communication_records": 0.2,
+      "historical_pattern": 0.1,
+      "policy_compliance": 0.15,
+      "digital_access_logs": 0.0,
+      "image_visual_analysis": 0.05
+    },
+    "AR": {
+      "delivery_proof": 0.05,
+      "product_condition": 0.05,
+      "transaction_pattern": 0.1,
+      "merchant_documentation": 0.15,
+      "cardholder_documentation": 0.15,
+      "communication_records": 0.1,
+      "historical_pattern": 0.15,
+      "policy_compliance": 0.1,
+      "digital_access_logs": 0.1,
+      "image_visual_analysis": 0.05
+    },
+    "SP_RENTAL": {
+      "delivery_proof": 0.05,
+      "product_condition": 0.15,
+      "transaction_pattern": 0.05,
+      "merchant_documentation": 0.2,
+      "cardholder_documentation": 0.1,
+      "communication_records": 0.05,
+      "historical_pattern": 0.1,
+      "policy_compliance": 0.1,
+      "digital_access_logs": 0.05,
+      "image_visual_analysis": 0.15
+    },
+    "SP_TRAVEL": {
+      "delivery_proof": 0.1,
+      "product_condition": 0.05,
+      "transaction_pattern": 0.05,
+      "merchant_documentation": 0.15,
+      "cardholder_documentation": 0.15,
+      "communication_records": 0.15,
+      "historical_pattern": 0.1,
+      "policy_compliance": 0.1,
+      "digital_access_logs": 0.05,
+      "image_visual_analysis": 0.1
+    },
+    "SP_DIGITAL": {
+      "delivery_proof": 0.05,
+      "product_condition": 0.05,
+      "transaction_pattern": 0.1,
+      "merchant_documentation": 0.15,
+      "cardholder_documentation": 0.15,
+      "communication_records": 0.1,
+      "historical_pattern": 0.1,
+      "policy_compliance": 0.1,
+      "digital_access_logs": 0.15,
+      "image_visual_analysis": 0.05
+    }
+  },
+  "amex_mappings": [
+    {
+      "network": "amex",
+      "network_code": "4507",
+      "network_description": "Incorrect Transaction Amount Or PAN Presented",
+      "excel_category": "Billing",
+      "internal_codes": [
+        "BA-02"
+      ],
+      "raw_internal_field": "BA-02",
+      "resolution_approach": "Compare authorization amount vs charged amount; verify correcting transactions"
+    },
+    {
+      "network": "amex",
+      "network_code": "4512",
+      "network_description": "Multiple Processing",
+      "excel_category": "Billing",
+      "internal_codes": [
+        "BA-01"
+      ],
+      "raw_internal_field": "BA-01",
+      "resolution_approach": "Transaction pattern analysis; same-amount same-merchant detection"
+    },
+    {
+      "network": "amex",
+      "network_code": "4513",
+      "network_description": "Credit Not Presented",
+      "excel_category": "Billing/Cancellation",
+      "internal_codes": [
+        "BA-04",
+        "CR-01",
+        "SP-02"
+      ],
+      "raw_internal_field": "BA-04/CR-01/SP-02",
+      "resolution_approach": "Check merchant refund logs; verify return policies and no-show policies"
+    },
+    {
+      "network": "amex",
+      "network_code": "4515",
+      "network_description": "Paid Through Other Means",
+      "excel_category": "Billing",
+      "internal_codes": [
+        "BA-03"
+      ],
+      "raw_internal_field": "BA-03",
+      "resolution_approach": "Cross-reference merchant multi-channel payment records"
+    },
+    {
+      "network": "amex",
+      "network_code": "4516",
+      "network_description": "Request For Support Not Fulfilled",
+      "excel_category": "Process",
+      "internal_codes": [],
+      "raw_internal_field": "N/A \u2014 escalation trigger",
+      "resolution_approach": "Merchant failed to respond; auto-favor cardholder per network rules"
+    },
+    {
+      "network": "amex",
+      "network_code": "4517",
+      "network_description": "Request For Support Illegible / Incomplete",
+      "excel_category": "Process",
+      "internal_codes": [],
+      "raw_internal_field": "N/A \u2014 escalation trigger",
+      "resolution_approach": "Merchant provided insufficient docs; auto-favor cardholder per network rules"
+    },
+    {
+      "network": "amex",
+      "network_code": "4521",
+      "network_description": "Invalid Authorisation",
+      "excel_category": "Authorization",
+      "internal_codes": [
+        "AR-02"
+      ],
+      "raw_internal_field": "AR-02",
+      "resolution_approach": "Check authorization network records and timeframes"
+    },
+    {
+      "network": "amex",
+      "network_code": "4523",
+      "network_description": "Unassigned Card Member Account Number",
+      "excel_category": "Authorization",
+      "internal_codes": [
+        "AR-03"
+      ],
+      "raw_internal_field": "AR-03",
+      "resolution_approach": "Verify card imprint or digital authorization data"
+    },
+    {
+      "network": "amex",
+      "network_code": "4527",
+      "network_description": "Missing Imprint",
+      "excel_category": "Authorization",
+      "internal_codes": [
+        "AR-03"
+      ],
+      "raw_internal_field": "AR-03",
+      "resolution_approach": "Verify card imprint or digital authorization data"
+    },
+    {
+      "network": "amex",
+      "network_code": "4530",
+      "network_description": "Currency Discrepancy",
+      "excel_category": "Billing",
+      "internal_codes": [
+        "BA-08"
+      ],
+      "raw_internal_field": "BA-08",
+      "resolution_approach": "Check DCC consent and exchange rate records"
+    },
+    {
+      "network": "amex",
+      "network_code": "4534",
+      "network_description": "Multiple ROCs",
+      "excel_category": "Billing",
+      "internal_codes": [
+        "BA-01"
+      ],
+      "raw_internal_field": "BA-01",
+      "resolution_approach": "Verify individual transaction validity and distinct purchases"
+    },
+    {
+      "network": "amex",
+      "network_code": "4536",
+      "network_description": "Late Presentment",
+      "excel_category": "Billing",
+      "internal_codes": [
+        "BA-09"
+      ],
+      "raw_internal_field": "BA-09",
+      "resolution_approach": "Verify submission date vs transaction date"
+    },
+    {
+      "network": "amex",
+      "network_code": "4540",
+      "network_description": "Card Not Present",
+      "excel_category": "Authorization",
+      "internal_codes": [
+        "AR-01"
+      ],
+      "raw_internal_field": "AR-01",
+      "resolution_approach": "Verify CVV, AAV, shipping address, or SafeKey authentication"
+    },
+    {
+      "network": "amex",
+      "network_code": "4544",
+      "network_description": "Cancellation Of Recurring Goods / Services",
+      "excel_category": "Cancellation",
+      "internal_codes": [
+        "CR-03",
+        "CR-04"
+      ],
+      "raw_internal_field": "CR-03/CR-04",
+      "resolution_approach": "Verify cancellation confirmation and post-cancellation charges"
+    },
+    {
+      "network": "amex",
+      "network_code": "4553",
+      "network_description": "Not As Described Or Defective Merchandise",
+      "excel_category": "Quality",
+      "internal_codes": [
+        "QD-01",
+        "QD-02",
+        "QD-03",
+        "QD-04",
+        "QD-05",
+        "QD-06"
+      ],
+      "raw_internal_field": "QD-01/QD-02/QD-03/QD-04/QD-05/QD-06",
+      "resolution_approach": "Image damage assessment; compare product listing vs received"
+    },
+    {
+      "network": "amex",
+      "network_code": "4554",
+      "network_description": "Goods And Services Not Received",
+      "excel_category": "Non-Receipt",
+      "internal_codes": [
+        "NR-01",
+        "NR-02",
+        "NR-03",
+        "NR-04",
+        "NR-05"
+      ],
+      "raw_internal_field": "NR-01/NR-02/NR-03/NR-04/NR-05",
+      "resolution_approach": "Auto-fetch shipping tracking; check delivery confirmation"
+    },
+    {
+      "network": "amex",
+      "network_code": "4750",
+      "network_description": "Car Rental Charge Non Qualified or Unsubstantiated",
+      "excel_category": "Special",
+      "internal_codes": [
+        "SP-01"
+      ],
+      "raw_internal_field": "SP-01",
+      "resolution_approach": "Verify capital damages acknowledgement, rental terms, or insurance"
+    },
+    {
+      "network": "amex",
+      "network_code": "4752",
+      "network_description": "Credit / Debit Presentment Error",
+      "excel_category": "Billing",
+      "internal_codes": [
+        "BA-05"
+      ],
+      "raw_internal_field": "BA-05",
+      "resolution_approach": "Check payment gateway transaction type logs"
+    },
+    {
+      "network": "amex",
+      "network_code": "4754",
+      "network_description": "Local Regulatory / Legal Dispute",
+      "excel_category": "Special",
+      "internal_codes": [
+        "SP-07"
+      ],
+      "raw_internal_field": "SP-07",
+      "resolution_approach": "Verify legal claims or regulations cited"
+    },
+    {
+      "network": "amex",
+      "network_code": "4755",
+      "network_description": "No Valid Authorisation",
+      "excel_category": "Authorization",
+      "internal_codes": [
+        "AR-02"
+      ],
+      "raw_internal_field": "AR-02",
+      "resolution_approach": "Check authorization network records"
+    },
+    {
+      "network": "amex",
+      "network_code": "4763",
+      "network_description": "Fraud Full Recourse",
+      "excel_category": "Authorization",
+      "internal_codes": [
+        "AR-04"
+      ],
+      "raw_internal_field": "AR-04",
+      "resolution_approach": "Fraud program check"
+    },
+    {
+      "network": "amex",
+      "network_code": "4798",
+      "network_description": "Fraud Liability Shift - Counterfeit",
+      "excel_category": "Authorization",
+      "internal_codes": [
+        "AR-05"
+      ],
+      "raw_internal_field": "AR-05",
+      "resolution_approach": "Check chip/fallback transaction status and liability"
+    },
+    {
+      "network": "amex",
+      "network_code": "6003",
+      "network_description": "Retrieval Request: Issuer requires to validate claims",
+      "excel_category": "Retrieval",
+      "internal_codes": [],
+      "raw_internal_field": "",
+      "resolution_approach": "Provide signed receipt, booking confirmation, or delivery proof"
+    },
+    {
+      "network": "amex",
+      "network_code": "6006",
+      "network_description": "Retrieval Request: Legal Request or Fraud Analysis",
+      "excel_category": "Retrieval",
+      "internal_codes": [],
+      "raw_internal_field": "",
+      "resolution_approach": "Provide itemized receipt, delivery proof, or legal records"
+    },
+    {
+      "network": "amex",
+      "network_code": "6008",
+      "network_description": "Retrieval Request: Card Member requests copy bearing signature",
+      "excel_category": "Retrieval",
+      "internal_codes": [],
+      "raw_internal_field": "",
+      "resolution_approach": "Provide signed receipt or policy details"
+    },
+    {
+      "network": "amex",
+      "network_code": "6013",
+      "network_description": "Retrieval Request: Repeat Request",
+      "excel_category": "Retrieval",
+      "internal_codes": [],
+      "raw_internal_field": "",
+      "resolution_approach": "Refer to original Retrieval Request documentation"
+    },
+    {
+      "network": "amex",
+      "network_code": "6014",
+      "network_description": "Retrieval Request: Card Member does not recognise Transaction",
+      "excel_category": "Retrieval",
+      "internal_codes": [],
+      "raw_internal_field": "",
+      "resolution_approach": "Provide signed receipt, delivery proof, or IP address"
+    },
+    {
+      "network": "amex",
+      "network_code": "6016",
+      "network_description": "Retrieval Request: Card Member needs for personal records",
+      "excel_category": "Retrieval",
+      "internal_codes": [],
+      "raw_internal_field": "",
+      "resolution_approach": "Provide itemized receipt or policy details"
+    }
+  ],
+  "source_file": "/home/claude/dispute-resolution/config/taxonomy_source/Dispute_codes.xlsx"
+}

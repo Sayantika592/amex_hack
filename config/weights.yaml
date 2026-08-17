@@ -1,0 +1,155 @@
+_meta:
+  layer: 6
+  source: Excel sheet 'Evidence Weight matrix' (authoritative). profile_map assigns each internal type
+    to a profile.
+profiles:
+  NR:
+    delivery_proof: 0.35
+    product_condition: 0.05
+    transaction_pattern: 0.05
+    merchant_documentation: 0.15
+    cardholder_documentation: 0.1
+    communication_records: 0.05
+    historical_pattern: 0.1
+    policy_compliance: 0.05
+    digital_access_logs: 0.05
+    image_visual_analysis: 0.05
+  QD:
+    delivery_proof: 0.1
+    product_condition: 0.3
+    transaction_pattern: 0.05
+    merchant_documentation: 0.15
+    cardholder_documentation: 0.15
+    communication_records: 0.05
+    historical_pattern: 0.05
+    policy_compliance: 0.05
+    digital_access_logs: 0.0
+    image_visual_analysis: 0.1
+  BA_DUP:
+    delivery_proof: 0.05
+    product_condition: 0.05
+    transaction_pattern: 0.4
+    merchant_documentation: 0.15
+    cardholder_documentation: 0.1
+    communication_records: 0.05
+    historical_pattern: 0.1
+    policy_compliance: 0.05
+    digital_access_logs: 0.0
+    image_visual_analysis: 0.05
+  BA_AMT:
+    delivery_proof: 0.05
+    product_condition: 0.05
+    transaction_pattern: 0.2
+    merchant_documentation: 0.2
+    cardholder_documentation: 0.15
+    communication_records: 0.1
+    historical_pattern: 0.1
+    policy_compliance: 0.05
+    digital_access_logs: 0.0
+    image_visual_analysis: 0.1
+  CR_RET:
+    delivery_proof: 0.15
+    product_condition: 0.1
+    transaction_pattern: 0.05
+    merchant_documentation: 0.15
+    cardholder_documentation: 0.15
+    communication_records: 0.1
+    historical_pattern: 0.1
+    policy_compliance: 0.1
+    digital_access_logs: 0.0
+    image_visual_analysis: 0.1
+  CR_SUB:
+    delivery_proof: 0.05
+    product_condition: 0.05
+    transaction_pattern: 0.1
+    merchant_documentation: 0.15
+    cardholder_documentation: 0.15
+    communication_records: 0.2
+    historical_pattern: 0.1
+    policy_compliance: 0.15
+    digital_access_logs: 0.0
+    image_visual_analysis: 0.05
+  AR:
+    delivery_proof: 0.05
+    product_condition: 0.05
+    transaction_pattern: 0.1
+    merchant_documentation: 0.15
+    cardholder_documentation: 0.15
+    communication_records: 0.1
+    historical_pattern: 0.15
+    policy_compliance: 0.1
+    digital_access_logs: 0.1
+    image_visual_analysis: 0.05
+  SP_RENTAL:
+    delivery_proof: 0.05
+    product_condition: 0.15
+    transaction_pattern: 0.05
+    merchant_documentation: 0.2
+    cardholder_documentation: 0.1
+    communication_records: 0.05
+    historical_pattern: 0.1
+    policy_compliance: 0.1
+    digital_access_logs: 0.05
+    image_visual_analysis: 0.15
+  SP_TRAVEL:
+    delivery_proof: 0.1
+    product_condition: 0.05
+    transaction_pattern: 0.05
+    merchant_documentation: 0.15
+    cardholder_documentation: 0.15
+    communication_records: 0.15
+    historical_pattern: 0.1
+    policy_compliance: 0.1
+    digital_access_logs: 0.05
+    image_visual_analysis: 0.1
+  SP_DIGITAL:
+    delivery_proof: 0.05
+    product_condition: 0.05
+    transaction_pattern: 0.1
+    merchant_documentation: 0.15
+    cardholder_documentation: 0.15
+    communication_records: 0.1
+    historical_pattern: 0.1
+    policy_compliance: 0.1
+    digital_access_logs: 0.15
+    image_visual_analysis: 0.05
+profile_map:
+  NR-01: NR
+  NR-02: NR
+  NR-03: NR
+  NR-05: NR
+  NR-04: SP_DIGITAL
+  QD-01: QD
+  QD-02: QD
+  QD-03: QD
+  QD-04: QD
+  QD-05: QD
+  QD-06: QD
+  BA-01: BA_DUP
+  BA-02: BA_AMT
+  BA-03: BA_AMT
+  BA-05: BA_AMT
+  BA-06: BA_AMT
+  BA-07: BA_AMT
+  BA-08: BA_AMT
+  BA-09: BA_AMT
+  BA-04: CR_RET
+  CR-01: CR_RET
+  CR-02: CR_RET
+  CR-05: CR_RET
+  CR-06: CR_RET
+  CR-03: CR_SUB
+  CR-04: CR_SUB
+  AR-01: AR
+  AR-02: AR
+  AR-03: AR
+  AR-04: AR
+  AR-05: AR
+  SP-01: SP_RENTAL
+  SP-02: SP_RENTAL
+  SP-03: SP_TRAVEL
+  SP-04: CR_RET
+  SP-05: BA_AMT
+  SP-06: CR_SUB
+  SP-07: QD
+  SP-08: BA_AMT

@@ -1,0 +1,26 @@
+# Layer 5 — Dispute Integrity engine. ADVISORY ONLY: flags go to a human
+# analyst; the engine can NEVER auto-deny. Separate from evidence quality:
+# a genuine customer can have weak evidence; a fraudster can have strong.
+signals:
+  high_dispute_frequency:
+    threshold_prior_disputes: 5
+    score_divisor: 10
+    max_score: 0.8
+  very_early_dispute:
+    threshold_hours: 2
+    score: 0.5
+  shared_device:
+    threshold_accounts: 3
+    score: 0.6
+  low_risk_merchant:
+    threshold_dispute_rate: 0.001
+    score: 0.3
+  serial_same_category:
+    threshold_same_category: 3
+    score: 0.6
+  high_loss_rate_filer:
+    threshold_prior: 3
+    threshold_loss_rate: 0.6
+    score: 0.5
+aggregation: mean_capped     # mean of fired signals, capped at 0.95
+cap: 0.95

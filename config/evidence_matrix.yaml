@@ -1,0 +1,805 @@
+_meta:
+  layer: 2
+  note: Network-specific evidence mapping. Editable configuration - a Visa rule change is a one-row edit
+    here, no code changes.
+categories:
+  NR-01:
+    required:
+      amex:
+      - shipping_tracking
+      - delivery_confirmation
+      - cardholder_address_verification
+      visa:
+      - shipping_tracking
+      - delivery_confirmation
+      - signed_proof_of_delivery
+      mastercard:
+      - shipping_tracking
+      - delivery_confirmation
+      - carrier_damage_claim
+    optional:
+    - merchant_fulfillment_status
+    - gps_delivery_coordinates
+    cardholder_requested:
+    - confirm_delivery_address
+    merchant_requested:
+    - proof_of_shipment
+    - carrier_details
+  NR-02:
+    required:
+      amex:
+      - shipping_tracking
+      - merchant_fulfillment_status
+      - receipt_data
+      visa:
+      - shipping_tracking
+      - merchant_fulfillment_status
+      - receipt_data
+      mastercard:
+      - shipping_tracking
+      - merchant_fulfillment_status
+      - receipt_data
+    optional:
+    - packaging_photos
+    - delivery_confirmation
+    cardholder_requested:
+    - list_missing_items
+    merchant_requested:
+    - pick_pack_records
+    - shipment_weight
+  NR-03:
+    required:
+      amex:
+      - service_appointment_records
+      - communication_thread
+      - receipt_data
+      visa:
+      - service_appointment_records
+      - attendance_logs
+      - receipt_data
+      mastercard:
+      - service_appointment_records
+      - communication_thread
+      - receipt_data
+    optional:
+    - booking_confirmation
+    cardholder_requested:
+    - describe_service_expected
+    merchant_requested:
+    - service_completion_confirmation
+    - provider_logs
+  NR-04:
+    required:
+      amex:
+      - digital_access_logs
+      - download_delivery_logs
+      - order_confirmation_email
+      visa:
+      - digital_access_logs
+      - download_delivery_logs
+      - account_provisioning_records
+      mastercard:
+      - digital_access_logs
+      - download_delivery_logs
+      - order_confirmation_email
+    optional:
+    - login_ip_device_data
+    cardholder_requested:
+    - confirm_account_email
+    merchant_requested:
+    - license_key_records
+    - provisioning_timestamps
+  NR-05:
+    required:
+      amex:
+      - order_confirmation_email
+      - shipping_tracking
+      - merchant_terms_of_service
+      visa:
+      - order_confirmation_email
+      - shipping_tracking
+      - merchant_terms_of_service
+      mastercard:
+      - order_confirmation_email
+      - shipping_tracking
+      - merchant_terms_of_service
+    optional:
+    - delay_notification
+    - delivery_confirmation
+    cardholder_requested:
+    - state_promised_date
+    merchant_requested:
+    - delivery_guarantee_terms
+  QD-01:
+    required:
+      amex:
+      - product_listing
+      - cardholder_photos
+      - merchant_return_policy
+      visa:
+      - product_listing
+      - cardholder_photos
+      - merchant_inspection_records
+      mastercard:
+      - product_listing
+      - cardholder_photos
+      - carrier_damage_claim
+    optional:
+    - packaging_photos
+    - qc_records
+    cardholder_requested:
+    - photos_of_damage
+    - description_of_defect
+    merchant_requested:
+    - pre_shipment_inspection
+    - packaging_standards
+    - qc_records
+  QD-02:
+    required:
+      amex:
+      - product_specs
+      - cardholder_statement
+      - warranty_records
+      visa:
+      - product_specs
+      - cardholder_statement
+      - warranty_records
+      mastercard:
+      - product_specs
+      - cardholder_statement
+      - warranty_records
+    optional:
+    - cardholder_photos
+    - communication_thread
+    - qc_records
+    cardholder_requested:
+    - describe_defect
+    - repair_attempts
+    merchant_requested:
+    - qc_records
+    - manufacturer_defect_reports
+  QD-03:
+    required:
+      amex:
+      - product_listing
+      - cardholder_photos
+      - receipt_data
+      visa:
+      - product_listing
+      - cardholder_photos
+      - receipt_data
+      mastercard:
+      - product_listing
+      - cardholder_photos
+      - receipt_data
+    optional:
+    - product_specs
+    - communication_thread
+    cardholder_requested:
+    - photos_of_item
+    - state_material_difference
+    merchant_requested:
+    - catalog_specs
+    - order_line_items
+  QD-04:
+    required:
+      amex:
+      - cardholder_photos
+      - brand_authentication
+      - product_listing
+      visa:
+      - cardholder_photos
+      - brand_authentication
+      - product_listing
+      mastercard:
+      - cardholder_photos
+      - brand_authentication
+      - product_listing
+    optional:
+    - packaging_photos
+    cardholder_requested:
+    - photos_of_authenticity_markers
+    merchant_requested:
+    - sourcing_documentation
+    - supplier_invoices
+  QD-05:
+    required:
+      amex:
+      - product_listing
+      - cardholder_photos
+      - merchant_fulfillment_status
+      visa:
+      - product_listing
+      - cardholder_photos
+      - merchant_fulfillment_status
+      mastercard:
+      - product_listing
+      - cardholder_photos
+      - merchant_fulfillment_status
+    optional:
+    - receipt_data
+    - packaging_photos
+    cardholder_requested:
+    - photos_of_received_item
+    merchant_requested:
+    - pick_pack_records
+    - sku_records
+  QD-06:
+    required:
+      amex:
+      - product_listing
+      - cardholder_photos
+      - cardholder_statement
+      visa:
+      - product_listing
+      - cardholder_photos
+      - cardholder_statement
+      mastercard:
+      - product_listing
+      - cardholder_photos
+      - cardholder_statement
+    optional:
+    - communication_thread
+    - merchant_return_policy
+    - qc_records
+    cardholder_requested:
+    - photos_of_item
+    - describe_quality_issue
+    merchant_requested:
+    - quality_standards
+    - qc_records
+  BA-01:
+    required:
+      amex:
+      - all_transactions_same_merchant_7d
+      - receipt_data
+      visa:
+      - all_transactions_same_merchant_7d
+      - authorization_log
+      mastercard:
+      - all_transactions_same_merchant_7d
+      - receipt_data
+      - pos_terminal_logs
+    optional:
+    - payment_gateway_logs
+    cardholder_requested:
+    - confirm_which_charge_valid
+    merchant_requested:
+    - invoice_per_charge
+    - refund_records
+  BA-02:
+    required:
+      amex:
+      - authorization_log
+      - receipt_data
+      visa:
+      - authorization_log
+      - receipt_data
+      mastercard:
+      - authorization_log
+      - receipt_data
+      - pos_terminal_logs
+    optional:
+    - payment_gateway_logs
+    cardholder_requested:
+    - state_expected_amount
+    merchant_requested:
+    - itemized_invoice
+    - correcting_transactions
+  BA-03:
+    required:
+      amex:
+      - other_payment_proof
+      - receipt_data
+      - payment_gateway_logs
+      visa:
+      - other_payment_proof
+      - receipt_data
+      - payment_gateway_logs
+      mastercard:
+      - other_payment_proof
+      - receipt_data
+      - payment_gateway_logs
+    optional:
+    - communication_thread
+    cardholder_requested:
+    - proof_of_other_payment
+    merchant_requested:
+    - multi_channel_payment_records
+  BA-04:
+    required:
+      amex:
+      - refund_records
+      - merchant_return_policy
+      - communication_thread
+      visa:
+      - refund_records
+      - merchant_return_policy
+      - communication_thread
+      mastercard:
+      - refund_records
+      - merchant_return_policy
+      - communication_thread
+    optional:
+    - return_shipping_proof
+    - refund_promise_email
+    cardholder_requested:
+    - return_proof
+    - refund_promise
+    merchant_requested:
+    - refund_processing_logs
+    - credit_issuance_records
+  BA-05:
+    required:
+      amex:
+      - payment_gateway_logs
+      - receipt_data
+      visa:
+      - payment_gateway_logs
+      - receipt_data
+      mastercard:
+      - payment_gateway_logs
+      - receipt_data
+    optional:
+    - authorization_log
+    cardholder_requested:
+    - statement_screenshot
+    merchant_requested:
+    - presentment_type_logs
+  BA-06:
+    required:
+      amex:
+      - authorization_log
+      - receipt_data
+      visa:
+      - authorization_log
+      - receipt_data
+      mastercard:
+      - authorization_log
+      - receipt_data
+    optional:
+    - communication_thread
+    cardholder_requested:
+    - state_authorized_amount
+    merchant_requested:
+    - incremental_authorization_consent
+  BA-07:
+    required:
+      amex:
+      - installment_agreement
+      - payment_gateway_logs
+      - receipt_data
+      visa:
+      - installment_agreement
+      - payment_gateway_logs
+      - receipt_data
+      mastercard:
+      - installment_agreement
+      - payment_gateway_logs
+      - receipt_data
+    optional:
+    - communication_thread
+    cardholder_requested:
+    - state_agreed_schedule
+    merchant_requested:
+    - billing_schedule_records
+  BA-08:
+    required:
+      amex:
+      - currency_conversion_record
+      - dcc_consent_record
+      - receipt_data
+      visa:
+      - currency_conversion_record
+      - dcc_consent_record
+      - receipt_data
+      mastercard:
+      - currency_conversion_record
+      - dcc_consent_record
+      - receipt_data
+    optional:
+    - payment_gateway_logs
+    cardholder_requested:
+    - statement_screenshot
+    merchant_requested:
+    - exchange_rate_records
+  BA-09:
+    required:
+      amex:
+      - payment_gateway_logs
+      - receipt_data
+      visa:
+      - payment_gateway_logs
+      - receipt_data
+      mastercard:
+      - payment_gateway_logs
+      - receipt_data
+    optional:
+    - authorization_log
+    cardholder_requested: []
+    merchant_requested:
+    - presentment_date_records
+  CR-01:
+    required:
+      amex:
+      - return_shipping_proof
+      - merchant_return_policy
+      - refund_records
+      visa:
+      - return_shipping_proof
+      - merchant_return_policy
+      - refund_records
+      mastercard:
+      - return_shipping_proof
+      - merchant_return_policy
+      - refund_records
+    optional:
+    - communication_thread
+    cardholder_requested:
+    - return_tracking_number
+    merchant_requested:
+    - return_receiving_records
+    - refund_processing_logs
+  CR-02:
+    required:
+      amex:
+      - cancellation_records
+      - communication_thread
+      - merchant_terms_of_service
+      visa:
+      - cancellation_records
+      - communication_thread
+      - merchant_terms_of_service
+      mastercard:
+      - cancellation_records
+      - communication_thread
+      - merchant_terms_of_service
+    optional:
+    - cancellation_confirmation
+    cardholder_requested:
+    - cancellation_confirmation_number
+    merchant_requested:
+    - cancellation_processing_logs
+  CR-03:
+    required:
+      amex:
+      - cancellation_records
+      - subscription_history
+      - merchant_terms_of_service
+      visa:
+      - cancellation_records
+      - subscription_history
+      - merchant_terms_of_service
+      mastercard:
+      - cancellation_records
+      - subscription_history
+      - merchant_terms_of_service
+    optional:
+    - cancellation_confirmation
+    - communication_thread
+    cardholder_requested:
+    - cancellation_date
+    - cancellation_confirmation_number
+    merchant_requested:
+    - billing_after_cancellation_logs
+  CR-04:
+    required:
+      amex:
+      - subscription_history
+      - promotional_terms
+      - communication_thread
+      visa:
+      - subscription_history
+      - promotional_terms
+      - communication_thread
+      mastercard:
+      - subscription_history
+      - promotional_terms
+      - communication_thread
+    optional:
+    - cancellation_records
+    cardholder_requested:
+    - trial_signup_details
+    merchant_requested:
+    - consent_records
+    - trial_terms_disclosure
+  CR-05:
+    required:
+      amex:
+      - booking_confirmation
+      - no_show_policy
+      - cancellation_records
+      visa:
+      - booking_confirmation
+      - no_show_policy
+      - cancellation_records
+      mastercard:
+      - booking_confirmation
+      - no_show_policy
+      - cancellation_records
+    optional:
+    - communication_thread
+    cardholder_requested:
+    - cancellation_attempt_details
+    merchant_requested:
+    - policy_disclosure_proof
+    - folio_records
+  CR-06:
+    required:
+      amex:
+      - shipping_tracking
+      - merchant_return_policy
+      - refund_records
+      visa:
+      - shipping_tracking
+      - merchant_return_policy
+      - refund_records
+      mastercard:
+      - shipping_tracking
+      - merchant_return_policy
+      - refund_records
+    optional:
+    - communication_thread
+    cardholder_requested:
+    - refusal_reason
+    merchant_requested:
+    - return_receiving_records
+  AR-01:
+    required:
+      amex:
+      - receipt_data
+      - merchant_fulfillment_status
+      - login_ip_device_data
+      visa:
+      - receipt_data
+      - merchant_fulfillment_status
+      - login_ip_device_data
+      mastercard:
+      - receipt_data
+      - merchant_fulfillment_status
+      - login_ip_device_data
+    optional:
+    - order_confirmation_email
+    - shipping_tracking
+    cardholder_requested:
+    - confirm_descriptor_unfamiliar
+    merchant_requested:
+    - descriptor_details
+    - delivery_or_ip_proof
+  AR-02:
+    required:
+      amex:
+      - authorization_log
+      - payment_gateway_logs
+      visa:
+      - authorization_log
+      - payment_gateway_logs
+      mastercard:
+      - authorization_log
+      - payment_gateway_logs
+    optional:
+    - receipt_data
+    cardholder_requested: []
+    merchant_requested:
+    - authorization_approval_records
+  AR-03:
+    required:
+      amex:
+      - emv_chip_data
+      - pos_signed_receipt
+      - authorization_log
+      visa:
+      - emv_chip_data
+      - pos_signed_receipt
+      - authorization_log
+      mastercard:
+      - emv_chip_data
+      - pos_signed_receipt
+      - authorization_log
+    optional:
+    - pos_terminal_logs
+    cardholder_requested:
+    - state_card_possession
+    merchant_requested:
+    - card_imprint
+    - terminal_records
+  AR-04:
+    required:
+      amex:
+      - authorization_log
+      - payment_gateway_logs
+      visa:
+      - authorization_log
+      - payment_gateway_logs
+      mastercard:
+      - authorization_log
+      - payment_gateway_logs
+    optional:
+    - emv_chip_data
+    cardholder_requested: []
+    merchant_requested:
+    - fraud_program_records
+  AR-05:
+    required:
+      amex:
+      - emv_chip_data
+      - authorization_log
+      visa:
+      - emv_chip_data
+      - authorization_log
+      mastercard:
+      - emv_chip_data
+      - authorization_log
+    optional:
+    - pos_terminal_logs
+    cardholder_requested: []
+    merchant_requested:
+    - chip_capability_records
+  SP-01:
+    required:
+      amex:
+      - rental_agreement
+      - damage_acknowledgement
+      - cardholder_photos
+      visa:
+      - rental_agreement
+      - damage_acknowledgement
+      - cardholder_photos
+      mastercard:
+      - rental_agreement
+      - damage_acknowledgement
+      - cardholder_photos
+    optional:
+    - insurance_claim_record
+    - communication_thread
+    cardholder_requested:
+    - state_vehicle_condition
+    - photos_of_item
+    merchant_requested:
+    - itemized_damage_bill
+    - repair_estimates
+  SP-02:
+    required:
+      amex:
+      - hotel_folio
+      - booking_confirmation
+      - receipt_data
+      visa:
+      - hotel_folio
+      - booking_confirmation
+      - receipt_data
+      mastercard:
+      - hotel_folio
+      - booking_confirmation
+      - receipt_data
+    optional:
+    - communication_thread
+    cardholder_requested:
+    - state_disputed_incidentals
+    merchant_requested:
+    - signed_registration
+    - incidental_consent
+  SP-03:
+    required:
+      amex:
+      - airline_ticket_records
+      - travel_disruption_record
+      - receipt_data
+      visa:
+      - airline_ticket_records
+      - travel_disruption_record
+      - receipt_data
+      mastercard:
+      - airline_ticket_records
+      - travel_disruption_record
+      - receipt_data
+    optional:
+    - communication_thread
+    - booking_confirmation
+    cardholder_requested:
+    - state_travel_issue
+    merchant_requested:
+    - tariff_rules
+    - credit_issuance_records
+  SP-04:
+    required:
+      amex:
+      - merchant_terms_of_service
+      - communication_thread
+      - receipt_data
+      visa:
+      - merchant_terms_of_service
+      - communication_thread
+      - receipt_data
+      mastercard:
+      - merchant_terms_of_service
+      - communication_thread
+      - receipt_data
+    optional:
+    - promotional_terms
+    cardholder_requested:
+    - contract_copy
+    - rescission_attempt_details
+    merchant_requested:
+    - signed_contract
+    - disclosure_records
+  SP-05:
+    required:
+      amex:
+      - insurance_claim_record
+      - receipt_data
+      - communication_thread
+      visa:
+      - insurance_claim_record
+      - receipt_data
+      - communication_thread
+      mastercard:
+      - insurance_claim_record
+      - receipt_data
+      - communication_thread
+    optional:
+    - payment_gateway_logs
+    cardholder_requested:
+    - insurance_policy_details
+    merchant_requested:
+    - claim_settlement_records
+  SP-06:
+    required:
+      amex:
+      - promotional_terms
+      - receipt_data
+      - communication_thread
+      visa:
+      - promotional_terms
+      - receipt_data
+      - communication_thread
+      mastercard:
+      - promotional_terms
+      - receipt_data
+      - communication_thread
+    optional:
+    - order_confirmation_email
+    cardholder_requested:
+    - promo_offer_copy
+    merchant_requested:
+    - offer_terms_disclosure
+  SP-07:
+    required:
+      amex:
+      - product_listing
+      - cardholder_statement
+      - communication_thread
+      visa:
+      - product_listing
+      - cardholder_statement
+      - communication_thread
+      mastercard:
+      - product_listing
+      - cardholder_statement
+      - communication_thread
+    optional:
+    - cardholder_photos
+    - promotional_terms
+    cardholder_requested:
+    - advertising_copy
+    - state_misrepresentation
+    merchant_requested:
+    - advertising_records
+    - substantiation_docs
+  SP-08:
+    required:
+      amex:
+      - atm_terminal_logs
+      - receipt_data
+      visa:
+      - atm_terminal_logs
+      - receipt_data
+      mastercard:
+      - atm_terminal_logs
+      - receipt_data
+    optional:
+    - payment_gateway_logs
+    cardholder_requested:
+    - state_amount_received
+    merchant_requested:
+    - terminal_balancing_records

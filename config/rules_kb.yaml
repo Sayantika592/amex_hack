@@ -1,0 +1,164 @@
+# Rule knowledge base for Layer 7 RAG citations. Each explanation retrieves
+# the governing rule and attaches its citation. (Demonstration corpus keyed
+# to the supplied code guides; production would ingest full network manuals.)
+rules:
+  - id: AMEX-C32
+    network: amex
+    citation: "Amex Rule C32 - Goods/Services Damaged or Defective"
+    applies_to: [QD-01, QD-02, QD-06]
+    text: >
+      Where the card member documents that goods arrived damaged or defective,
+      the merchant must demonstrate the goods were in the promised condition
+      when shipped and that a remedy consistent with its stated policy was offered.
+  - id: AMEX-4553
+    network: amex
+    citation: "Amex Reason Code 4553 - Not As Described or Defective Merchandise"
+    applies_to: [QD-01, QD-02, QD-03, QD-04, QD-05, QD-06]
+    text: >
+      Covers merchandise not as described, damaged, defective, counterfeit, or
+      the wrong item. Image damage assessment and listing comparison are
+      acceptable supporting evidence.
+  - id: AMEX-4554
+    network: amex
+    citation: "Amex Reason Code 4554 - Goods and Services Not Received"
+    applies_to: [NR-01, NR-02, NR-03, NR-04, NR-05]
+    text: >
+      The merchant must provide proof of delivery to the card member's address
+      or proof the services were provided. Absent such proof the dispute
+      resolves in favour of the card member.
+  - id: AMEX-4512
+    network: amex
+    citation: "Amex Reason Code 4512 - Multiple Processing"
+    applies_to: [BA-01]
+    text: >
+      Where the same charge is processed more than once, the merchant must show
+      each presentment was a distinct, valid transaction.
+  - id: AMEX-4534
+    network: amex
+    citation: "Amex Reason Code 4534 - Multiple ROCs"
+    applies_to: [BA-01]
+    text: >
+      Multiple records of charge for a single purchase require evidence of
+      distinct purchases; otherwise the duplicate is credited.
+  - id: AMEX-4513
+    network: amex
+    citation: "Amex Reason Code 4513 - Credit Not Presented"
+    applies_to: [BA-04, CR-01, SP-02]
+    text: >
+      Where a credit was due (return accepted, cancellation confirmed, or
+      billing error acknowledged) the merchant must show the credit was
+      processed or was not owed under its disclosed policy.
+  - id: AMEX-4544
+    network: amex
+    citation: "Amex Reason Code 4544 - Cancellation of Recurring Goods/Services"
+    applies_to: [CR-03, CR-04]
+    text: >
+      Charges after a properly submitted cancellation of recurring billing are
+      the merchant's liability unless it demonstrates the cancellation was not
+      received or was outside its disclosed terms.
+  - id: AMEX-4507
+    network: amex
+    citation: "Amex Reason Code 4507 - Incorrect Transaction Amount"
+    applies_to: [BA-02, BA-06]
+    text: >
+      The amount charged must match the amount authorized or receipted;
+      discrepancies are corrected in the card member's favour absent consent.
+  - id: AMEX-4515
+    network: amex
+    citation: "Amex Reason Code 4515 - Paid Through Other Means"
+    applies_to: [BA-03]
+    text: >
+      Where payment was made by other means, the card charge is credited unless
+      the merchant shows the card payment settled a distinct obligation.
+  - id: AMEX-4530
+    network: amex
+    citation: "Amex Reason Code 4530 - Currency Discrepancy"
+    applies_to: [BA-08]
+    text: >
+      Dynamic currency conversion requires disclosed consent; undisclosed
+      conversion resolves in the card member's favour.
+  - id: AMEX-4540
+    network: amex
+    citation: "Amex Reason Code 4540 - Card Not Present / Unrecognized"
+    applies_to: [AR-01]
+    text: >
+      For unrecognized card-not-present charges the merchant should supply a
+      recognizable descriptor, receipt, and delivery or IP evidence.
+  - id: AMEX-4521
+    network: amex
+    citation: "Amex Reason Code 4521 - Invalid Authorisation"
+    applies_to: [AR-02]
+    text: >
+      Charges lacking valid authorization approval within required timeframes
+      are chargeable to the merchant.
+  - id: AMEX-4750
+    network: amex
+    citation: "Amex Reason Code 4750 - Car Rental Non-Qualified Charge"
+    applies_to: [SP-01]
+    text: >
+      Rental damage or loss charges require a signed agreement, itemized and
+      substantiated damages, and compliance with acknowledgement requirements.
+  - id: AMEX-RESP-20
+    network: amex
+    citation: "Amex Merchant Response Requirement (20 days)"
+    applies_to: ["*"]
+    text: >
+      The merchant must respond to a dispute inquiry within 20 days; absent a
+      timely and complete response the case resolves in favour of the card
+      member (see also reason codes 4516/4517).
+  - id: AMEX-TL-120
+    network: amex
+    citation: "Amex Chargeback Filing Window (120 days)"
+    applies_to: ["*"]
+    text: >
+      Card member disputes must generally be filed within 120 days of the
+      transaction or expected delivery date.
+  - id: VISA-13.1
+    network: visa
+    citation: "Visa Rule 13.1 - Merchandise/Services Not Received"
+    applies_to: [NR-01, NR-02, NR-03, NR-04, NR-05, SP-03]
+    text: >
+      The merchant must provide compelling evidence of delivery to the
+      cardholder's verified address or proof services were rendered.
+  - id: VISA-13.3
+    network: visa
+    citation: "Visa Rule 13.3 - Not as Described or Defective"
+    applies_to: [QD-01, QD-02, QD-03, QD-05, QD-06, SP-02]
+    text: >
+      Requires the cardholder's description of the defect and permits merchant
+      rebuttal with condition and inspection records.
+  - id: VISA-13.6
+    network: visa
+    citation: "Visa Rule 13.6 - Credit Not Processed"
+    applies_to: [BA-04]
+    text: >
+      Where a credit voucher or refund acknowledgement exists, the credit must
+      be processed within required timeframes.
+  - id: VISA-13.7
+    network: visa
+    citation: "Visa Rule 13.7 - Cancelled Merchandise/Services"
+    applies_to: [CR-01, CR-02, CR-05, CR-06]
+    text: >
+      Cancelled or returned merchandise and services must be credited per the
+      merchant's properly disclosed policy.
+  - id: VISA-12.6
+    network: visa
+    citation: "Visa Rule 12.6 - Duplicate Processing / Paid by Other Means"
+    applies_to: [BA-01, BA-03]
+    text: >
+      Duplicate processing or charges also paid by other means are credited
+      absent proof of distinct valid transactions.
+  - id: MC-4853
+    network: mastercard
+    citation: "Mastercard Reason Code 4853 - Cardholder Dispute"
+    applies_to: [NR-01, QD-01, QD-02, QD-03, CR-01, CR-02, CR-03, SP-03]
+    text: >
+      Umbrella cardholder-dispute right covering goods/services not received,
+      not as described, defective, or not credited after cancellation/return.
+  - id: MC-4834
+    network: mastercard
+    citation: "Mastercard Reason Code 4834 - Point-of-Interaction Error"
+    applies_to: [BA-01, BA-02, BA-05]
+    text: >
+      Covers duplicate transactions, incorrect amounts, and credits posted as
+      charges arising from point-of-interaction errors.

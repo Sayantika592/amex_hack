@@ -1,0 +1,47 @@
+# Layer 7 — transparent burden of proof. For every case the system surfaces:
+# who bears the burden, what would discharge it, and which way the outcome
+# defaults if it is not discharged. Both parties see this.
+default:
+  bearer: merchant
+  requirement: "Must produce documentary evidence supporting the charge as valid."
+  default_outcome: favor_cardholder
+categories:
+  NR-01: {bearer: merchant, requirement: "Must demonstrate the item was shipped and delivered to the card member's address.", default_outcome: favor_cardholder}
+  NR-02: {bearer: merchant, requirement: "Must demonstrate every ordered line item was picked, packed and delivered.", default_outcome: favor_cardholder}
+  NR-03: {bearer: merchant, requirement: "Must demonstrate the service was performed or provided as contracted.", default_outcome: favor_cardholder}
+  NR-04: {bearer: merchant, requirement: "Must produce delivery/access logs showing the digital goods were provisioned to the card member.", default_outcome: favor_cardholder}
+  NR-05: {bearer: merchant, requirement: "Must show delivery met the promised date or a delivery guarantee did not apply.", default_outcome: favor_cardholder}
+  QD-01: {bearer: merchant, requirement: "Must show the item was undamaged when shipped (pre-shipment inspection / QC records).", default_outcome: favor_cardholder}
+  QD-02: {bearer: merchant, requirement: "Must show the item functioned to specification when shipped, or a remedy was offered per warranty.", default_outcome: favor_cardholder}
+  QD-03: {bearer: cardholder, requirement: "Must show the item received differs materially from the listing/description.", default_outcome: favor_merchant}
+  QD-04: {bearer: cardholder, requirement: "Must show authenticity markers indicating the item is counterfeit; merchant may rebut with sourcing documentation.", default_outcome: favor_merchant}
+  QD-05: {bearer: merchant, requirement: "Must show the item shipped matches the ordered SKU.", default_outcome: favor_cardholder}
+  QD-06: {bearer: cardholder, requirement: "Must show quality falls materially below the advertised standard.", default_outcome: favor_merchant}
+  BA-01: {bearer: merchant, requirement: "Must show each charge was a separate, valid purchase.", default_outcome: favor_cardholder}
+  BA-02: {bearer: merchant, requirement: "Must show the charged amount matches the authorized/receipted amount.", default_outcome: favor_cardholder}
+  BA-03: {bearer: merchant, requirement: "Must show the card charge was not settled through another payment means.", default_outcome: favor_cardholder}
+  BA-04: {bearer: merchant, requirement: "Must show the refund was processed, or was not owed under the applicable policy.", default_outcome: favor_cardholder}
+  BA-05: {bearer: merchant, requirement: "Must show the presentment was a valid charge, not a credit posted in error.", default_outcome: favor_cardholder}
+  BA-06: {bearer: merchant, requirement: "Must show incremental amounts above authorization were consented to.", default_outcome: favor_cardholder}
+  BA-07: {bearer: merchant, requirement: "Must show installment billing followed the agreed schedule.", default_outcome: favor_cardholder}
+  BA-08: {bearer: merchant, requirement: "Must show currency conversion (incl. DCC) was disclosed and consented to.", default_outcome: favor_cardholder}
+  BA-09: {bearer: merchant, requirement: "Must show the charge was presented within the network's presentment timeframe.", default_outcome: favor_cardholder}
+  CR-01: {bearer: merchant, requirement: "Must show the return was not received or fell outside the return policy.", default_outcome: favor_cardholder}
+  CR-02: {bearer: merchant, requirement: "Must show the cancellation was not properly submitted before the charge.", default_outcome: favor_cardholder}
+  CR-03: {bearer: merchant, requirement: "Must show the recurring cancellation was not properly submitted before billing.", default_outcome: favor_cardholder}
+  CR-04: {bearer: merchant, requirement: "Must show clear consent to convert the free trial into paid billing.", default_outcome: favor_cardholder}
+  CR-05: {bearer: merchant, requirement: "Must show the no-show/cancellation policy was disclosed and properly applied.", default_outcome: favor_cardholder}
+  CR-06: {bearer: merchant, requirement: "Must show refusal at delivery was invalid or the goods were not returned.", default_outcome: favor_cardholder}
+  AR-01: {bearer: merchant, requirement: "Must supply recognizable transaction detail (descriptor, receipt, delivery/IP data).", default_outcome: favor_cardholder}
+  AR-02: {bearer: merchant, requirement: "Must produce a valid authorization approval for the amount charged.", default_outcome: favor_cardholder}
+  AR-03: {bearer: merchant, requirement: "Must produce card-present proof (imprint, chip data, signed receipt).", default_outcome: favor_cardholder}
+  AR-04: {bearer: merchant, requirement: "Fraud full recourse (Excel-only mapping): must satisfy the network fraud-program requirements.", default_outcome: favor_cardholder}
+  AR-05: {bearer: merchant, requirement: "Liability shift – counterfeit (Excel-only mapping): must show chip-capable acceptance.", default_outcome: favor_cardholder}
+  SP-01: {bearer: merchant, requirement: "Must produce the signed rental agreement and itemized, substantiated damage documentation.", default_outcome: favor_cardholder}
+  SP-02: {bearer: merchant, requirement: "Must produce the folio and consent for incidental charges.", default_outcome: favor_cardholder}
+  SP-03: {bearer: merchant, requirement: "Must show the travel service was provided or credit issued per tariff rules.", default_outcome: favor_cardholder}
+  SP-04: {bearer: cardholder, requirement: "Must show the timeshare terms were misrepresented or rescission rights were denied.", default_outcome: favor_merchant}
+  SP-05: {bearer: merchant, requirement: "Must show the charge was not covered/settled by the applicable insurance.", default_outcome: favor_cardholder}
+  SP-06: {bearer: cardholder, requirement: "Must show the promotional terms as advertised were not honoured.", default_outcome: favor_merchant}
+  SP-07: {bearer: cardholder, requirement: "Must show material misrepresentation or false advertising in the offer.", default_outcome: favor_merchant}
+  SP-08: {bearer: merchant, requirement: "Must produce ATM terminal logs showing the cash was dispensed in full.", default_outcome: favor_cardholder}

@@ -1,0 +1,25 @@
+# Network-level compliance rules (Layer 7).
+# Editable by compliance teams without touching any code or ML model.
+networks:
+  amex:
+    merchant_response_window_days: 20
+    auto_favor_on_no_response: true
+    chargeback_time_limit_days: 120
+    representment_window_days: 20
+  visa:
+    merchant_response_window_days: 30
+    auto_favor_on_no_response: true
+    chargeback_time_limit_days: 120
+    representment_window_days: 30
+  mastercard:
+    merchant_response_window_days: 45
+    auto_favor_on_no_response: true
+    chargeback_time_limit_days: 120
+    representment_window_days: 45
+# Amex codes that are pure process triggers (no dispute category):
+process_trigger_codes:
+  amex:
+    "4516": "Request For Support Not Fulfilled - auto-favor cardholder"
+    "4517": "Request For Support Illegible / Incomplete - auto-favor cardholder"
+retrieval_request_codes:
+  amex: ["6003", "6006", "6008", "6013", "6014", "6016"]
