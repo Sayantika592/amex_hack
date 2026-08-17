@@ -1,0 +1,18 @@
+# Core backend — runs the full system in AI_MODE=demo (deterministic
+# classifier + vision adapters).  For real HF models see requirements-ml.txt.
+fastapi>=0.115
+uvicorn[standard]>=0.30
+sqlalchemy>=2.0
+pyyaml>=6.0
+pandas>=2.2
+numpy>=1.26
+openpyxl>=3.1
+pillow>=10.0
+python-multipart>=0.0.9
+spacy>=3.7
+# spaCy English model (small). If this URL install fails, run:
+#   python -m spacy download en_core_web_sm
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
+# testing
+pytest>=8.0
+httpx>=0.27

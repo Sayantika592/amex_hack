@@ -1,0 +1,17 @@
+# Optional REAL-mode ML stack (AI_MODE=real).
+#
+# Download the checkpoints ONCE on a machine with internet:
+#     python scripts/fetch_models.py
+# then run offline at the venue with HF_HUB_OFFLINE=1 AI_MODE=real.
+#
+# Sizes: BART-large-MNLI ~1.6 GB, CLIP ViT-L/14 ~1.7 GB, BLIP-2 OPT-2.7B ~15 GB.
+# BLIP-2 needs a GPU to be demo-fast; without one, fetch bart+clip only and
+# Stage B stays in DEMO mode (reported honestly in the UI).
+-r requirements.txt
+# Pinned to the 4.x API the adapters were written against.  transformers 5.x
+# changed several model/pipeline APIs and could not be validated offline here,
+# so do not loosen this pin before demo day without re-running fetch_models.py.
+torch>=2.2,<3
+transformers>=4.40,<5
+sentencepiece>=0.2
+accelerate>=0.30
