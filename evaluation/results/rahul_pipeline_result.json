@@ -1,0 +1,1355 @@
+{
+  "dispute_id": "D-DEMO-RAHUL",
+  "elapsed_seconds": 1.237,
+  "final_state": "resolved",
+  "trigger": "rahul_e2e",
+  "timings": {
+    "graph_context": 0.0334,
+    "classification": 1.0736,
+    "evidence_mapping": 0.0354,
+    "evidence_collection": 0.0417,
+    "evidence_scoring": 0.0042,
+    "integrity": 0.0029,
+    "decision": 0.0161,
+    "compliance": 0.0013,
+    "action": 0.0016,
+    "feedback": 0.0043
+  },
+  "classification": {
+    "status": "auto_classified",
+    "primary_code": "QD-01",
+    "primary_label": "Goods damaged on arrival",
+    "confidence": 0.96,
+    "categories": [
+      {
+        "code": "QD-01",
+        "label": "Goods damaged on arrival",
+        "confidence": 0.96
+      }
+    ],
+    "override": false,
+    "override_reason": null,
+    "model": "DeterministicClassifier (weighted phrase lexicon)",
+    "mode": "demo",
+    "network_mapping": {
+      "internal_code": "QD-01",
+      "network": "amex",
+      "network_reason_codes": [
+        "4553"
+      ],
+      "note": "Internal type and network reason code are separate concepts; mapping is many-to-many per the supplied Excel."
+    },
+    "nlp_features": {
+      "clean_text": "Laptop screen was cracked when I opened the box. It looks like it was damaged during shipping.",
+      "sentences": [
+        "Laptop screen was cracked when I opened the box.",
+        "It looks like it was damaged during shipping."
+      ],
+      "entities": [],
+      "amounts": [],
+      "dates": [],
+      "negations": 0,
+      "token_count": 19,
+      "model": "spaCy en_core_web_sm",
+      "mode": "real"
+    }
+  },
+  "graph_context_summary": {
+    "prior_dispute_count": 0,
+    "merchant_dispute_rate": 0.8571,
+    "merchant_loss_rate": 0.0,
+    "device_linked_cardholders": 1,
+    "existing_refund": false,
+    "address_familiarity_deliveries": 1,
+    "same_product_damage_reports": 0,
+    "shipment_status": "delivered"
+  },
+  "evidence_mapping": {
+    "primary": {
+      "category": "QD-01",
+      "network": "amex",
+      "network_reason_codes": [
+        "4553"
+      ],
+      "required_evidence": [
+        "product_listing",
+        "cardholder_photos",
+        "merchant_return_policy"
+      ],
+      "optional_evidence": [
+        "packaging_photos",
+        "qc_records"
+      ],
+      "cardholder_requested": [
+        "photos_of_damage",
+        "description_of_defect"
+      ],
+      "merchant_requested": [
+        "pre_shipment_inspection",
+        "packaging_standards",
+        "qc_records"
+      ],
+      "source": "config/evidence_matrix.yaml"
+    },
+    "sub_requirements": [],
+    "union_required": [
+      "product_listing",
+      "cardholder_photos",
+      "merchant_return_policy"
+    ],
+    "union_optional": [
+      "packaging_photos",
+      "qc_records"
+    ]
+  },
+  "evidence_collection": {
+    "dispatched_collectors": [
+      "product_listing",
+      "cardholder_photos",
+      "merchant_return_policy",
+      "packaging_photos",
+      "qc_records"
+    ],
+    "collected_types": [
+      "cardholder_photos",
+      "merchant_return_policy",
+      "packaging_photos",
+      "product_listing",
+      "qc_records"
+    ],
+    "missing_required": [],
+    "errors": [],
+    "completeness": 0.8,
+    "parallel_elapsed_seconds": 0.0416
+  },
+  "evidence_scoring": {
+    "summary": {
+      "strong": 1,
+      "moderate": 3,
+      "weak": 0,
+      "none": 1
+    },
+    "items": {
+      "product_listing": {
+        "final_strength": 0.55,
+        "strength_label": "moderate",
+        "resolved_type": "product_listing",
+        "source_party": "system",
+        "supports": null,
+        "notes": [
+          "fresh (0d)"
+        ]
+      },
+      "cardholder_photos": {
+        "final_strength": 0.845,
+        "strength_label": "strong",
+        "resolved_type": "ai_damage_assessment",
+        "source_party": null,
+        "supports": null,
+        "notes": [
+          "AI-verified as the disputed product",
+          "recency unknown"
+        ],
+        "vision": {
+          "product_match": true,
+          "combined_score": 0.934,
+          "image_similarity": 0.996,
+          "text_similarity": 0.858,
+          "has_damage": true,
+          "severity_label": "severe",
+          "damage_description": "extensive fracture lines radiating from an impact point across the item surface (detected on the electronics)",
+          "model": "PixelVision (classical CV \u2014 colour/structure match + fracture detection)",
+          "mode": "demo"
+        }
+      },
+      "merchant_return_policy": {
+        "final_strength": 0.55,
+        "strength_label": "moderate",
+        "resolved_type": "merchant_return_policy",
+        "source_party": null,
+        "supports": null,
+        "notes": [
+          "recency unknown"
+        ]
+      },
+      "packaging_photos": {
+        "final_strength": 0.5,
+        "strength_label": "moderate",
+        "resolved_type": "packaging_photos",
+        "source_party": "cardholder",
+        "supports": null,
+        "notes": [
+          "fresh (0d)"
+        ]
+      },
+      "qc_records": {
+        "final_strength": 0.0,
+        "strength_label": "none",
+        "resolved_type": "qc_records",
+        "source_party": null,
+        "supports": null,
+        "notes": [
+          "evidence not provided / not available"
+        ]
+      }
+    }
+  },
+  "integrity": {
+    "suspicion_score": 0.0,
+    "signals": [],
+    "is_suspicious": false,
+    "action": "proceed_normally",
+    "advisory_only": true,
+    "note": "Integrity is advisory only \u2014 flags route to a human analyst; the engine never auto-denies."
+  },
+  "decision": {
+    "final_score": 0.597,
+    "factor_breakdown": {
+      "delivery_proof": {
+        "direction_score": 0.0,
+        "evidence_strength": "none",
+        "weight": 0.1,
+        "weighted": 0.0,
+        "reason": "delivery_not_material",
+        "detail": ""
+      },
+      "product_condition": {
+        "direction_score": 0.89,
+        "evidence_strength": "strong",
+        "weight": 0.3,
+        "weighted": 0.267,
+        "reason": "damage_verified_severe",
+        "detail": "extensive fracture lines radiating from an impact point across the item surface (detected on the electronics)"
+      },
+      "transaction_pattern": {
+        "direction_score": 0.0,
+        "evidence_strength": "none",
+        "weight": 0.05,
+        "weighted": 0.0,
+        "reason": "no_related_txns",
+        "detail": ""
+      },
+      "merchant_documentation": {
+        "direction_score": 0.6,
+        "evidence_strength": "none",
+        "weight": 0.15,
+        "weighted": 0.09,
+        "reason": "merchant_docs_absent_burden_unmet",
+        "detail": ""
+      },
+      "cardholder_documentation": {
+        "direction_score": 0.67,
+        "evidence_strength": "moderate",
+        "weight": 0.15,
+        "weighted": 0.1005,
+        "reason": "cardholder_docs_present",
+        "detail": "2 cardholder document types, avg strength 0.67"
+      },
+      "communication_records": {
+        "direction_score": 0.0,
+        "evidence_strength": "none",
+        "weight": 0.05,
+        "weighted": 0.0,
+        "reason": "no_communication_records",
+        "detail": ""
+      },
+      "historical_pattern": {
+        "direction_score": 0.3,
+        "evidence_strength": "moderate",
+        "weight": 0.05,
+        "weighted": 0.015,
+        "reason": "elevated merchant dispute rate 85.7%",
+        "detail": ""
+      },
+      "policy_compliance": {
+        "direction_score": 0.7,
+        "evidence_strength": "moderate",
+        "weight": 0.05,
+        "weighted": 0.035,
+        "reason": "within_merchant_policy_window",
+        "detail": "day 5 of a 7-day policy"
+      },
+      "digital_access_logs": {
+        "direction_score": 0.0,
+        "evidence_strength": "none",
+        "weight": 0.0,
+        "weighted": 0.0,
+        "reason": "digital_logs_not_material",
+        "detail": ""
+      },
+      "image_visual_analysis": {
+        "direction_score": 0.89,
+        "evidence_strength": "strong",
+        "weight": 0.1,
+        "weighted": 0.089,
+        "reason": "visual_damage_severe",
+        "detail": "extensive fracture lines radiating from an impact point across the item surface (detected on the electronics)"
+      }
+    },
+    "category": "QD-01",
+    "weight_profile": "QD",
+    "burden_of_proof": {
+      "bearer": "merchant",
+      "requirement": "Must show the item was undamaged when shipped (pre-shipment inspection / QC records).",
+      "default_outcome": "favor_cardholder",
+      "category": "QD-01"
+    },
+    "fairness": {
+      "demographic_blindness": [
+        "age",
+        "card_tier",
+        "demographic_note",
+        "ethnicity",
+        "gender",
+        "name",
+        "size",
+        "tenure_years"
+      ],
+      "merchant_history_weight": 0.05,
+      "note": "Identity attributes are stripped before scoring; merchant history is symmetric, capped, and breaks near-ties only."
+    },
+    "composite_score": 0.597,
+    "conclusive_evidence": [],
+    "multi_category": false,
+    "sub_decisions": [],
+    "conflicts": [],
+    "conflict_hold": false
+  },
+  "compliance": {
+    "overrides": [],
+    "compliance_notes": [
+      {
+        "rule": "within_merchant_return_policy",
+        "supports": "cardholder",
+        "reason": "Filed on day 5 of the merchant's own 7-day policy \u2014 the merchant's policy supports the claim."
+      }
+    ],
+    "network": "amex",
+    "checked_at": "2026-08-10T21:19:50.180655+00:00"
+  },
+  "reasoning": {
+    "decision_statement": "Resolved in favour of the Card Member.",
+    "confidence_pct": "98%",
+    "burden_of_proof": {
+      "bearer": "merchant",
+      "requirement": "Must show the item was undamaged when shipped (pre-shipment inspection / QC records).",
+      "default_if_not_met": "favor_cardholder"
+    },
+    "summary": "The uploaded image was verified as the disputed product. Visual analysis indicates severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics). The card member supplied supporting documentation (2 cardholder document types, avg strength 0.67). The merchant provided no documentation discharging its burden of proof.",
+    "detailed_factors": [
+      {
+        "dimension": "product_condition",
+        "weight": 0.3,
+        "contribution": 0.267,
+        "evidence_strength": "strong",
+        "text": "The uploaded image was verified as the disputed product. Visual analysis indicates severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics).",
+        "implication": "The item appears unusable in its current condition.",
+        "direction": "favors_cardholder"
+      },
+      {
+        "dimension": "cardholder_documentation",
+        "weight": 0.15,
+        "contribution": 0.1005,
+        "evidence_strength": "moderate",
+        "text": "The card member supplied supporting documentation (2 cardholder document types, avg strength 0.67).",
+        "implication": "The claim is documented from the card member's side.",
+        "direction": "favors_cardholder"
+      },
+      {
+        "dimension": "merchant_documentation",
+        "weight": 0.15,
+        "contribution": 0.09,
+        "evidence_strength": "none",
+        "text": "The merchant provided no documentation discharging its burden of proof.",
+        "implication": "Absent such proof, the outcome defaults toward the card member.",
+        "direction": "favors_cardholder"
+      },
+      {
+        "dimension": "image_visual_analysis",
+        "weight": 0.1,
+        "contribution": 0.089,
+        "evidence_strength": "strong",
+        "text": "Two-stage image analysis (product verification, then damage assessment) confirms severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics).",
+        "implication": "The visual evidence strongly supports the claim.",
+        "direction": "favors_cardholder"
+      },
+      {
+        "dimension": "policy_compliance",
+        "weight": 0.05,
+        "contribution": 0.035,
+        "evidence_strength": "moderate",
+        "text": "The claim falls within the merchant's own policy window (day 5 of a 7-day policy).",
+        "implication": "The merchant's own terms support the card member.",
+        "direction": "favors_cardholder"
+      },
+      {
+        "dimension": "historical_pattern",
+        "weight": 0.05,
+        "contribution": 0.015,
+        "evidence_strength": "moderate",
+        "text": "Relationship history: elevated merchant dispute rate 85.7%.",
+        "implication": "History is a capped, symmetric tie-breaker and never decides a case.",
+        "direction": "neutral"
+      },
+      {
+        "dimension": "digital_access_logs",
+        "weight": 0.0,
+        "contribution": 0.0,
+        "evidence_strength": "none",
+        "text": "Digital access logs are not material to this category.",
+        "implication": "This dimension does not affect the outcome.",
+        "direction": "neutral"
+      }
+    ],
+    "rule_citations": [
+      {
+        "id": "AMEX-C32",
+        "citation": "Amex Rule C32 - Goods/Services Damaged or Defective",
+        "text": "Where the card member documents that goods arrived damaged or defective, the merchant must demonstrate the goods were in the promised condition when shipped and that a remedy consistent with its stated policy was offered.",
+        "score": 5.0
+      },
+      {
+        "id": "AMEX-4553",
+        "citation": "Amex Reason Code 4553 - Not As Described or Defective Merchandise",
+        "text": "Covers merchandise not as described, damaged, defective, counterfeit, or the wrong item. Image damage assessment and listing comparison are acceptable supporting evidence.",
+        "score": 5.0
+      }
+    ],
+    "compliance_notes": [
+      {
+        "rule": "within_merchant_return_policy",
+        "supports": "cardholder",
+        "reason": "Filed on day 5 of the merchant's own 7-day policy \u2014 the merchant's policy supports the claim."
+      }
+    ],
+    "overrides_applied": [],
+    "nlg": {
+      "engine": "constrained template assembly (rule-engine facts only)",
+      "mode": "demo",
+      "note": "A hosted LLM rephraser is an optional upgrade, never a dependency; every sentence traces to an emitted fact."
+    }
+  },
+  "action": {
+    "action": "auto_approve",
+    "outcome": "favor_cardholder",
+    "reason": "evidence_favors_cardholder",
+    "final_score": 0.597,
+    "confidence": 0.98,
+    "cost_asymmetry_note": "Uncertain cases escalate or lean toward the card member; auto-deny requires clear evidence.",
+    "escalation_option": "Merchant may contest via representment.",
+    "refund_amount": 75000.0,
+    "refund_note": "full refund",
+    "currency": "INR"
+  },
+  "feedback": {
+    "feedback_event_id": "FB-1aef847fa6",
+    "signals_recorded": [
+      "issuer_decision"
+    ],
+    "resolution_seconds": 1.211,
+    "loop": "Outcome recorded; representment results, analyst overrides and escalations append further signals that recalibrate thresholds and retrain the classifier."
+  },
+  "role_views": {
+    "card_member": {
+      "role": "card_member",
+      "dispute_id": "D-DEMO-RAHUL",
+      "amount": 75000.0,
+      "currency": "INR",
+      "status_label": "Resolved in your favour",
+      "state": "resolved",
+      "progress": [
+        {
+          "step": "filed",
+          "done": true
+        },
+        {
+          "step": "evidence_gathering",
+          "done": true
+        },
+        {
+          "step": "merchant_response_window",
+          "done": true
+        },
+        {
+          "step": "decision",
+          "done": true
+        },
+        {
+          "step": "resolved",
+          "done": true
+        }
+      ],
+      "category": "QD-01 \u2014 Goods damaged on arrival",
+      "decision_statement": "Resolved in favour of the Card Member.",
+      "confidence_pct": "98%",
+      "why": [
+        {
+          "text": "The uploaded image was verified as the disputed product. Visual analysis indicates severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics).",
+          "weight_pct": 30
+        },
+        {
+          "text": "The card member supplied supporting documentation (2 cardholder document types, avg strength 0.67).",
+          "weight_pct": 15
+        },
+        {
+          "text": "The merchant provided no documentation discharging its burden of proof.",
+          "weight_pct": 15
+        },
+        {
+          "text": "Two-stage image analysis (product verification, then damage assessment) confirms severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics).",
+          "weight_pct": 10
+        },
+        {
+          "text": "The claim falls within the merchant's own policy window (day 5 of a 7-day policy).",
+          "weight_pct": 5
+        },
+        {
+          "text": "Relationship history: elevated merchant dispute rate 85.7%.",
+          "weight_pct": 5
+        },
+        {
+          "text": "Digital access logs are not material to this category.",
+          "weight_pct": 0
+        }
+      ],
+      "burden_of_proof": {
+        "bearer": "merchant",
+        "requirement": "Must show the item was undamaged when shipped (pre-shipment inspection / QC records).",
+        "default_if_not_met": "favor_cardholder"
+      },
+      "refund_amount": 75000.0,
+      "what_we_need_from_you": [],
+      "can_escalate": false,
+      "refund_note": "full refund"
+    },
+    "merchant": {
+      "role": "merchant",
+      "dispute_id": "D-DEMO-RAHUL",
+      "amount": 75000.0,
+      "currency": "INR",
+      "state": "resolved",
+      "outcome": "favor_cardholder",
+      "decision_statement": "Resolved in favour of the Card Member.",
+      "category": "QD-01 \u2014 Goods damaged on arrival",
+      "network_reason_codes": [
+        "4553"
+      ],
+      "evidence_strength_bars": [
+        {
+          "evidence": "product_listing",
+          "strength_pct": 55,
+          "label": "moderate"
+        },
+        {
+          "evidence": "cardholder_photos",
+          "strength_pct": 84,
+          "label": "strong"
+        },
+        {
+          "evidence": "merchant_return_policy",
+          "strength_pct": 55,
+          "label": "moderate"
+        },
+        {
+          "evidence": "packaging_photos",
+          "strength_pct": 50,
+          "label": "moderate"
+        },
+        {
+          "evidence": "qc_records",
+          "strength_pct": 0,
+          "label": "none"
+        }
+      ],
+      "what_would_help": [
+        "pre_shipment_inspection",
+        "packaging_standards",
+        "qc_records"
+      ],
+      "response_window": {
+        "responded": true,
+        "notified_date": "2026-08-01T08:00:00"
+      },
+      "can_represent": true,
+      "burden_of_proof": {
+        "bearer": "merchant",
+        "requirement": "Must show the item was undamaged when shipped (pre-shipment inspection / QC records).",
+        "default_if_not_met": "favor_cardholder"
+      }
+    },
+    "analyst": {
+      "role": "analyst",
+      "dispute": {
+        "id": "D-DEMO-RAHUL",
+        "transaction_id": "T-DEMO-RAHUL",
+        "card_member_id": "CM-DEMO-RAHUL",
+        "merchant_id": "M-DEMO-ELECTRO",
+        "network": "amex",
+        "user_selected_code": "QD-01",
+        "description": "Laptop screen was cracked when I opened the box. It looks like it was damaged during shipping.",
+        "filed_date": "2026-08-01T08:00:00",
+        "state": "resolved",
+        "classified_code": "QD-01",
+        "classification_confidence": 0.96,
+        "network_reason_codes": [
+          "4553"
+        ],
+        "outcome": "favor_cardholder",
+        "action": "auto_approve",
+        "final_score": 0.597,
+        "resolved_date": "2026-08-10T21:19:50.194298",
+        "merchant_notified_date": "2026-08-01T08:00:00",
+        "merchant_responded": true,
+        "is_historical": false,
+        "amount": 75000.0,
+        "currency": "INR"
+      },
+      "category": "QD-01 \u2014 Goods damaged on arrival",
+      "pipeline_stages": {
+        "dispute_id": "D-DEMO-RAHUL",
+        "trigger": "rahul_e2e",
+        "elapsed_seconds": 1.223,
+        "timings": {
+          "graph_context": 0.0334,
+          "classification": 1.0736,
+          "evidence_mapping": 0.0354,
+          "evidence_collection": 0.0417,
+          "evidence_scoring": 0.0042,
+          "integrity": 0.0029,
+          "decision": 0.0161,
+          "compliance": 0.0013,
+          "action": 0.0016,
+          "feedback": 0.0043
+        },
+        "classification": {
+          "status": "auto_classified",
+          "primary_code": "QD-01",
+          "primary_label": "Goods damaged on arrival",
+          "confidence": 0.96,
+          "categories": [
+            {
+              "code": "QD-01",
+              "label": "Goods damaged on arrival",
+              "confidence": 0.96
+            }
+          ],
+          "override": false,
+          "override_reason": null,
+          "model": "DeterministicClassifier (weighted phrase lexicon)",
+          "mode": "demo",
+          "network_mapping": {
+            "internal_code": "QD-01",
+            "network": "amex",
+            "network_reason_codes": [
+              "4553"
+            ],
+            "note": "Internal type and network reason code are separate concepts; mapping is many-to-many per the supplied Excel."
+          },
+          "nlp_features": {
+            "clean_text": "Laptop screen was cracked when I opened the box. It looks like it was damaged during shipping.",
+            "sentences": [
+              "Laptop screen was cracked when I opened the box.",
+              "It looks like it was damaged during shipping."
+            ],
+            "entities": [],
+            "amounts": [],
+            "dates": [],
+            "negations": 0,
+            "token_count": 19,
+            "model": "spaCy en_core_web_sm",
+            "mode": "real"
+          }
+        },
+        "graph_context_summary": {
+          "prior_dispute_count": 0,
+          "merchant_dispute_rate": 0.8571,
+          "merchant_loss_rate": 0.0,
+          "device_linked_cardholders": 1,
+          "existing_refund": false,
+          "address_familiarity_deliveries": 1,
+          "same_product_damage_reports": 0,
+          "shipment_status": "delivered"
+        },
+        "evidence_mapping": {
+          "primary": {
+            "category": "QD-01",
+            "network": "amex",
+            "network_reason_codes": [
+              "4553"
+            ],
+            "required_evidence": [
+              "product_listing",
+              "cardholder_photos",
+              "merchant_return_policy"
+            ],
+            "optional_evidence": [
+              "packaging_photos",
+              "qc_records"
+            ],
+            "cardholder_requested": [
+              "photos_of_damage",
+              "description_of_defect"
+            ],
+            "merchant_requested": [
+              "pre_shipment_inspection",
+              "packaging_standards",
+              "qc_records"
+            ],
+            "source": "config/evidence_matrix.yaml"
+          },
+          "sub_requirements": [],
+          "union_required": [
+            "product_listing",
+            "cardholder_photos",
+            "merchant_return_policy"
+          ],
+          "union_optional": [
+            "packaging_photos",
+            "qc_records"
+          ]
+        },
+        "evidence_collection": {
+          "dispatched_collectors": [
+            "product_listing",
+            "cardholder_photos",
+            "merchant_return_policy",
+            "packaging_photos",
+            "qc_records"
+          ],
+          "collected_types": [
+            "cardholder_photos",
+            "merchant_return_policy",
+            "packaging_photos",
+            "product_listing",
+            "qc_records"
+          ],
+          "missing_required": [],
+          "errors": [],
+          "completeness": 0.8,
+          "parallel_elapsed_seconds": 0.0416
+        },
+        "evidence_scoring": {
+          "summary": {
+            "strong": 1,
+            "moderate": 3,
+            "weak": 0,
+            "none": 1
+          },
+          "items": {
+            "product_listing": {
+              "final_strength": 0.55,
+              "strength_label": "moderate",
+              "resolved_type": "product_listing",
+              "source_party": "system",
+              "supports": null,
+              "notes": [
+                "fresh (0d)"
+              ]
+            },
+            "cardholder_photos": {
+              "final_strength": 0.845,
+              "strength_label": "strong",
+              "resolved_type": "ai_damage_assessment",
+              "source_party": null,
+              "supports": null,
+              "notes": [
+                "AI-verified as the disputed product",
+                "recency unknown"
+              ],
+              "vision": {
+                "product_match": true,
+                "combined_score": 0.934,
+                "image_similarity": 0.996,
+                "text_similarity": 0.858,
+                "has_damage": true,
+                "severity_label": "severe",
+                "damage_description": "extensive fracture lines radiating from an impact point across the item surface (detected on the electronics)",
+                "model": "PixelVision (classical CV \u2014 colour/structure match + fracture detection)",
+                "mode": "demo"
+              }
+            },
+            "merchant_return_policy": {
+              "final_strength": 0.55,
+              "strength_label": "moderate",
+              "resolved_type": "merchant_return_policy",
+              "source_party": null,
+              "supports": null,
+              "notes": [
+                "recency unknown"
+              ]
+            },
+            "packaging_photos": {
+              "final_strength": 0.5,
+              "strength_label": "moderate",
+              "resolved_type": "packaging_photos",
+              "source_party": "cardholder",
+              "supports": null,
+              "notes": [
+                "fresh (0d)"
+              ]
+            },
+            "qc_records": {
+              "final_strength": 0.0,
+              "strength_label": "none",
+              "resolved_type": "qc_records",
+              "source_party": null,
+              "supports": null,
+              "notes": [
+                "evidence not provided / not available"
+              ]
+            }
+          }
+        },
+        "integrity": {
+          "suspicion_score": 0.0,
+          "signals": [],
+          "is_suspicious": false,
+          "action": "proceed_normally",
+          "advisory_only": true,
+          "note": "Integrity is advisory only \u2014 flags route to a human analyst; the engine never auto-denies."
+        },
+        "decision": {
+          "final_score": 0.597,
+          "factor_breakdown": {
+            "delivery_proof": {
+              "direction_score": 0.0,
+              "evidence_strength": "none",
+              "weight": 0.1,
+              "weighted": 0.0,
+              "reason": "delivery_not_material",
+              "detail": ""
+            },
+            "product_condition": {
+              "direction_score": 0.89,
+              "evidence_strength": "strong",
+              "weight": 0.3,
+              "weighted": 0.267,
+              "reason": "damage_verified_severe",
+              "detail": "extensive fracture lines radiating from an impact point across the item surface (detected on the electronics)"
+            },
+            "transaction_pattern": {
+              "direction_score": 0.0,
+              "evidence_strength": "none",
+              "weight": 0.05,
+              "weighted": 0.0,
+              "reason": "no_related_txns",
+              "detail": ""
+            },
+            "merchant_documentation": {
+              "direction_score": 0.6,
+              "evidence_strength": "none",
+              "weight": 0.15,
+              "weighted": 0.09,
+              "reason": "merchant_docs_absent_burden_unmet",
+              "detail": ""
+            },
+            "cardholder_documentation": {
+              "direction_score": 0.67,
+              "evidence_strength": "moderate",
+              "weight": 0.15,
+              "weighted": 0.1005,
+              "reason": "cardholder_docs_present",
+              "detail": "2 cardholder document types, avg strength 0.67"
+            },
+            "communication_records": {
+              "direction_score": 0.0,
+              "evidence_strength": "none",
+              "weight": 0.05,
+              "weighted": 0.0,
+              "reason": "no_communication_records",
+              "detail": ""
+            },
+            "historical_pattern": {
+              "direction_score": 0.3,
+              "evidence_strength": "moderate",
+              "weight": 0.05,
+              "weighted": 0.015,
+              "reason": "elevated merchant dispute rate 85.7%",
+              "detail": ""
+            },
+            "policy_compliance": {
+              "direction_score": 0.7,
+              "evidence_strength": "moderate",
+              "weight": 0.05,
+              "weighted": 0.035,
+              "reason": "within_merchant_policy_window",
+              "detail": "day 5 of a 7-day policy"
+            },
+            "digital_access_logs": {
+              "direction_score": 0.0,
+              "evidence_strength": "none",
+              "weight": 0.0,
+              "weighted": 0.0,
+              "reason": "digital_logs_not_material",
+              "detail": ""
+            },
+            "image_visual_analysis": {
+              "direction_score": 0.89,
+              "evidence_strength": "strong",
+              "weight": 0.1,
+              "weighted": 0.089,
+              "reason": "visual_damage_severe",
+              "detail": "extensive fracture lines radiating from an impact point across the item surface (detected on the electronics)"
+            }
+          },
+          "category": "QD-01",
+          "weight_profile": "QD",
+          "burden_of_proof": {
+            "bearer": "merchant",
+            "requirement": "Must show the item was undamaged when shipped (pre-shipment inspection / QC records).",
+            "default_outcome": "favor_cardholder",
+            "category": "QD-01"
+          },
+          "fairness": {
+            "demographic_blindness": [
+              "age",
+              "card_tier",
+              "demographic_note",
+              "ethnicity",
+              "gender",
+              "name",
+              "size",
+              "tenure_years"
+            ],
+            "merchant_history_weight": 0.05,
+            "note": "Identity attributes are stripped before scoring; merchant history is symmetric, capped, and breaks near-ties only."
+          },
+          "composite_score": 0.597,
+          "conclusive_evidence": [],
+          "multi_category": false,
+          "sub_decisions": [],
+          "conflicts": [],
+          "conflict_hold": false
+        },
+        "compliance": {
+          "overrides": [],
+          "compliance_notes": [
+            {
+              "rule": "within_merchant_return_policy",
+              "supports": "cardholder",
+              "reason": "Filed on day 5 of the merchant's own 7-day policy \u2014 the merchant's policy supports the claim."
+            }
+          ],
+          "network": "amex",
+          "checked_at": "2026-08-10T21:19:50.180655+00:00"
+        },
+        "reasoning": {
+          "decision_statement": "Resolved in favour of the Card Member.",
+          "confidence_pct": "98%",
+          "burden_of_proof": {
+            "bearer": "merchant",
+            "requirement": "Must show the item was undamaged when shipped (pre-shipment inspection / QC records).",
+            "default_if_not_met": "favor_cardholder"
+          },
+          "summary": "The uploaded image was verified as the disputed product. Visual analysis indicates severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics). The card member supplied supporting documentation (2 cardholder document types, avg strength 0.67). The merchant provided no documentation discharging its burden of proof.",
+          "detailed_factors": [
+            {
+              "dimension": "product_condition",
+              "weight": 0.3,
+              "contribution": 0.267,
+              "evidence_strength": "strong",
+              "text": "The uploaded image was verified as the disputed product. Visual analysis indicates severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics).",
+              "implication": "The item appears unusable in its current condition.",
+              "direction": "favors_cardholder"
+            },
+            {
+              "dimension": "cardholder_documentation",
+              "weight": 0.15,
+              "contribution": 0.1005,
+              "evidence_strength": "moderate",
+              "text": "The card member supplied supporting documentation (2 cardholder document types, avg strength 0.67).",
+              "implication": "The claim is documented from the card member's side.",
+              "direction": "favors_cardholder"
+            },
+            {
+              "dimension": "merchant_documentation",
+              "weight": 0.15,
+              "contribution": 0.09,
+              "evidence_strength": "none",
+              "text": "The merchant provided no documentation discharging its burden of proof.",
+              "implication": "Absent such proof, the outcome defaults toward the card member.",
+              "direction": "favors_cardholder"
+            },
+            {
+              "dimension": "image_visual_analysis",
+              "weight": 0.1,
+              "contribution": 0.089,
+              "evidence_strength": "strong",
+              "text": "Two-stage image analysis (product verification, then damage assessment) confirms severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics).",
+              "implication": "The visual evidence strongly supports the claim.",
+              "direction": "favors_cardholder"
+            },
+            {
+              "dimension": "policy_compliance",
+              "weight": 0.05,
+              "contribution": 0.035,
+              "evidence_strength": "moderate",
+              "text": "The claim falls within the merchant's own policy window (day 5 of a 7-day policy).",
+              "implication": "The merchant's own terms support the card member.",
+              "direction": "favors_cardholder"
+            },
+            {
+              "dimension": "historical_pattern",
+              "weight": 0.05,
+              "contribution": 0.015,
+              "evidence_strength": "moderate",
+              "text": "Relationship history: elevated merchant dispute rate 85.7%.",
+              "implication": "History is a capped, symmetric tie-breaker and never decides a case.",
+              "direction": "neutral"
+            },
+            {
+              "dimension": "digital_access_logs",
+              "weight": 0.0,
+              "contribution": 0.0,
+              "evidence_strength": "none",
+              "text": "Digital access logs are not material to this category.",
+              "implication": "This dimension does not affect the outcome.",
+              "direction": "neutral"
+            }
+          ],
+          "rule_citations": [
+            {
+              "id": "AMEX-C32",
+              "citation": "Amex Rule C32 - Goods/Services Damaged or Defective",
+              "text": "Where the card member documents that goods arrived damaged or defective, the merchant must demonstrate the goods were in the promised condition when shipped and that a remedy consistent with its stated policy was offered.",
+              "score": 5.0
+            },
+            {
+              "id": "AMEX-4553",
+              "citation": "Amex Reason Code 4553 - Not As Described or Defective Merchandise",
+              "text": "Covers merchandise not as described, damaged, defective, counterfeit, or the wrong item. Image damage assessment and listing comparison are acceptable supporting evidence.",
+              "score": 5.0
+            }
+          ],
+          "compliance_notes": [
+            {
+              "rule": "within_merchant_return_policy",
+              "supports": "cardholder",
+              "reason": "Filed on day 5 of the merchant's own 7-day policy \u2014 the merchant's policy supports the claim."
+            }
+          ],
+          "overrides_applied": [],
+          "nlg": {
+            "engine": "constrained template assembly (rule-engine facts only)",
+            "mode": "demo",
+            "note": "A hosted LLM rephraser is an optional upgrade, never a dependency; every sentence traces to an emitted fact."
+          }
+        },
+        "action": {
+          "action": "auto_approve",
+          "outcome": "favor_cardholder",
+          "reason": "evidence_favors_cardholder",
+          "final_score": 0.597,
+          "confidence": 0.98,
+          "cost_asymmetry_note": "Uncertain cases escalate or lean toward the card member; auto-deny requires clear evidence.",
+          "escalation_option": "Merchant may contest via representment.",
+          "refund_amount": 75000.0,
+          "refund_note": "full refund",
+          "currency": "INR"
+        },
+        "feedback": {
+          "feedback_event_id": "FB-1aef847fa6",
+          "signals_recorded": [
+            "issuer_decision"
+          ],
+          "resolution_seconds": 1.211,
+          "loop": "Outcome recorded; representment results, analyst overrides and escalations append further signals that recalibrate thresholds and retrain the classifier."
+        }
+      },
+      "factor_breakdown": {
+        "delivery_proof": {
+          "direction_score": 0.0,
+          "evidence_strength": "none",
+          "weight": 0.1,
+          "weighted": 0.0,
+          "reason": "delivery_not_material",
+          "detail": ""
+        },
+        "product_condition": {
+          "direction_score": 0.89,
+          "evidence_strength": "strong",
+          "weight": 0.3,
+          "weighted": 0.267,
+          "reason": "damage_verified_severe",
+          "detail": "extensive fracture lines radiating from an impact point across the item surface (detected on the electronics)"
+        },
+        "transaction_pattern": {
+          "direction_score": 0.0,
+          "evidence_strength": "none",
+          "weight": 0.05,
+          "weighted": 0.0,
+          "reason": "no_related_txns",
+          "detail": ""
+        },
+        "merchant_documentation": {
+          "direction_score": 0.6,
+          "evidence_strength": "none",
+          "weight": 0.15,
+          "weighted": 0.09,
+          "reason": "merchant_docs_absent_burden_unmet",
+          "detail": ""
+        },
+        "cardholder_documentation": {
+          "direction_score": 0.67,
+          "evidence_strength": "moderate",
+          "weight": 0.15,
+          "weighted": 0.1005,
+          "reason": "cardholder_docs_present",
+          "detail": "2 cardholder document types, avg strength 0.67"
+        },
+        "communication_records": {
+          "direction_score": 0.0,
+          "evidence_strength": "none",
+          "weight": 0.05,
+          "weighted": 0.0,
+          "reason": "no_communication_records",
+          "detail": ""
+        },
+        "historical_pattern": {
+          "direction_score": 0.3,
+          "evidence_strength": "moderate",
+          "weight": 0.05,
+          "weighted": 0.015,
+          "reason": "elevated merchant dispute rate 85.7%",
+          "detail": ""
+        },
+        "policy_compliance": {
+          "direction_score": 0.7,
+          "evidence_strength": "moderate",
+          "weight": 0.05,
+          "weighted": 0.035,
+          "reason": "within_merchant_policy_window",
+          "detail": "day 5 of a 7-day policy"
+        },
+        "digital_access_logs": {
+          "direction_score": 0.0,
+          "evidence_strength": "none",
+          "weight": 0.0,
+          "weighted": 0.0,
+          "reason": "digital_logs_not_material",
+          "detail": ""
+        },
+        "image_visual_analysis": {
+          "direction_score": 0.89,
+          "evidence_strength": "strong",
+          "weight": 0.1,
+          "weighted": 0.089,
+          "reason": "visual_damage_severe",
+          "detail": "extensive fracture lines radiating from an impact point across the item surface (detected on the electronics)"
+        }
+      },
+      "integrity_signals": {
+        "suspicion_score": 0.0,
+        "signals": [],
+        "is_suspicious": false,
+        "action": "proceed_normally",
+        "advisory_only": true,
+        "note": "Integrity is advisory only \u2014 flags route to a human analyst; the engine never auto-denies."
+      },
+      "compliance": {
+        "overrides": [],
+        "compliance_notes": [
+          {
+            "rule": "within_merchant_return_policy",
+            "supports": "cardholder",
+            "reason": "Filed on day 5 of the merchant's own 7-day policy \u2014 the merchant's policy supports the claim."
+          }
+        ],
+        "network": "amex",
+        "checked_at": "2026-08-10T21:19:50.180655+00:00"
+      },
+      "explanation": {
+        "decision_statement": "Resolved in favour of the Card Member.",
+        "confidence_pct": "98%",
+        "burden_of_proof": {
+          "bearer": "merchant",
+          "requirement": "Must show the item was undamaged when shipped (pre-shipment inspection / QC records).",
+          "default_if_not_met": "favor_cardholder"
+        },
+        "summary": "The uploaded image was verified as the disputed product. Visual analysis indicates severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics). The card member supplied supporting documentation (2 cardholder document types, avg strength 0.67). The merchant provided no documentation discharging its burden of proof.",
+        "detailed_factors": [
+          {
+            "dimension": "product_condition",
+            "weight": 0.3,
+            "contribution": 0.267,
+            "evidence_strength": "strong",
+            "text": "The uploaded image was verified as the disputed product. Visual analysis indicates severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics).",
+            "implication": "The item appears unusable in its current condition.",
+            "direction": "favors_cardholder"
+          },
+          {
+            "dimension": "cardholder_documentation",
+            "weight": 0.15,
+            "contribution": 0.1005,
+            "evidence_strength": "moderate",
+            "text": "The card member supplied supporting documentation (2 cardholder document types, avg strength 0.67).",
+            "implication": "The claim is documented from the card member's side.",
+            "direction": "favors_cardholder"
+          },
+          {
+            "dimension": "merchant_documentation",
+            "weight": 0.15,
+            "contribution": 0.09,
+            "evidence_strength": "none",
+            "text": "The merchant provided no documentation discharging its burden of proof.",
+            "implication": "Absent such proof, the outcome defaults toward the card member.",
+            "direction": "favors_cardholder"
+          },
+          {
+            "dimension": "image_visual_analysis",
+            "weight": 0.1,
+            "contribution": 0.089,
+            "evidence_strength": "strong",
+            "text": "Two-stage image analysis (product verification, then damage assessment) confirms severe damage: extensive fracture lines radiating from an impact point across the item surface (detected on the electronics).",
+            "implication": "The visual evidence strongly supports the claim.",
+            "direction": "favors_cardholder"
+          },
+          {
+            "dimension": "policy_compliance",
+            "weight": 0.05,
+            "contribution": 0.035,
+            "evidence_strength": "moderate",
+            "text": "The claim falls within the merchant's own policy window (day 5 of a 7-day policy).",
+            "implication": "The merchant's own terms support the card member.",
+            "direction": "favors_cardholder"
+          },
+          {
+            "dimension": "historical_pattern",
+            "weight": 0.05,
+            "contribution": 0.015,
+            "evidence_strength": "moderate",
+            "text": "Relationship history: elevated merchant dispute rate 85.7%.",
+            "implication": "History is a capped, symmetric tie-breaker and never decides a case.",
+            "direction": "neutral"
+          },
+          {
+            "dimension": "digital_access_logs",
+            "weight": 0.0,
+            "contribution": 0.0,
+            "evidence_strength": "none",
+            "text": "Digital access logs are not material to this category.",
+            "implication": "This dimension does not affect the outcome.",
+            "direction": "neutral"
+          }
+        ],
+        "rule_citations": [
+          {
+            "id": "AMEX-C32",
+            "citation": "Amex Rule C32 - Goods/Services Damaged or Defective",
+            "text": "Where the card member documents that goods arrived damaged or defective, the merchant must demonstrate the goods were in the promised condition when shipped and that a remedy consistent with its stated policy was offered.",
+            "score": 5.0
+          },
+          {
+            "id": "AMEX-4553",
+            "citation": "Amex Reason Code 4553 - Not As Described or Defective Merchandise",
+            "text": "Covers merchandise not as described, damaged, defective, counterfeit, or the wrong item. Image damage assessment and listing comparison are acceptable supporting evidence.",
+            "score": 5.0
+          }
+        ],
+        "compliance_notes": [
+          {
+            "rule": "within_merchant_return_policy",
+            "supports": "cardholder",
+            "reason": "Filed on day 5 of the merchant's own 7-day policy \u2014 the merchant's policy supports the claim."
+          }
+        ],
+        "overrides_applied": [],
+        "nlg": {
+          "engine": "constrained template assembly (rule-engine facts only)",
+          "mode": "demo",
+          "note": "A hosted LLM rephraser is an optional upgrade, never a dependency; every sentence traces to an emitted fact."
+        }
+      },
+      "burden_of_proof": {
+        "bearer": "merchant",
+        "requirement": "Must show the item was undamaged when shipped (pre-shipment inspection / QC records).",
+        "default_outcome": "favor_cardholder",
+        "category": "QD-01"
+      },
+      "fairness": {
+        "demographic_blindness": [
+          "age",
+          "card_tier",
+          "demographic_note",
+          "ethnicity",
+          "gender",
+          "name",
+          "size",
+          "tenure_years"
+        ],
+        "merchant_history_weight": 0.05,
+        "note": "Identity attributes are stripped before scoring; merchant history is symmetric, capped, and breaks near-ties only."
+      },
+      "counterfactual_note": "Decision inputs are demographically blinded; re-running with party attributes swapped produces the identical factor breakdown (see fairness block).",
+      "evidence_items": [
+        {
+          "id": "EV-D-DEMO-RAHUL-00",
+          "dispute_id": "D-DEMO-RAHUL",
+          "evidence_type": "product_listing",
+          "source_party": "system",
+          "payload": {
+            "title": "Laptop Pro X",
+            "category": "electronics",
+            "listing_price": 75000,
+            "descriptor": "laptop pro x",
+            "description": "15-inch Laptop Pro X, aluminium body",
+            "image_ref": "/home/claude/dispute-resolution/data/generated/images/listings/P-DEMO-LAPTOP.jpg"
+          },
+          "collected_at": "2026-08-10T21:19:43.672680",
+          "dated": true,
+          "age_days": 0.0
+        },
+        {
+          "id": "EV-D-DEMO-RAHUL-01",
+          "dispute_id": "D-DEMO-RAHUL",
+          "evidence_type": "cardholder_photos",
+          "source_party": "cardholder",
+          "payload": {
+            "image_ref": "/home/claude/dispute-resolution/data/generated/images/photos/D-DEMO-RAHUL.jpg",
+            "content": {
+              "shows_product": true,
+              "visible_damage": true,
+              "severity_label": "severe",
+              "descriptor": "laptop pro x"
+            }
+          },
+          "collected_at": "2026-08-10T21:19:43.740734",
+          "dated": true,
+          "age_days": 0.0
+        },
+        {
+          "id": "EV-D-DEMO-RAHUL-02",
+          "dispute_id": "D-DEMO-RAHUL",
+          "evidence_type": "merchant_return_policy",
+          "source_party": "system",
+          "payload": {
+            "return_window_days": 7,
+            "terms": "7-day replacement for damaged goods"
+          },
+          "collected_at": "2026-08-10T21:19:43.741713",
+          "dated": true,
+          "age_days": 0.0
+        },
+        {
+          "id": "EV-D-DEMO-RAHUL-03",
+          "dispute_id": "D-DEMO-RAHUL",
+          "evidence_type": "packaging_photos",
+          "source_party": "cardholder",
+          "payload": {
+            "note": "outer carton intact, inner foam compressed at one corner"
+          },
+          "collected_at": "2026-08-10T21:19:43.742321",
+          "dated": true,
+          "age_days": 0.0
+        }
+      ],
+      "merchant_responses": [],
+      "analyst_actions": [],
+      "override_controls": [
+        "accept",
+        "modify",
+        "override"
+      ]
+    }
+  }
+}

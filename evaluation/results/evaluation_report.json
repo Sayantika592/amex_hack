@@ -1,0 +1,193 @@
+{
+  "generated_at": "2026-08-10T21:27:02.549296+00:00",
+  "n_evaluated": 7000,
+  "n_errors": 0,
+  "classification": {
+    "accuracy_on_clear_descriptions": 0.988,
+    "n_clear": 6437,
+    "vague_descriptions": 563,
+    "vague_correctly_flagged": 563,
+    "top_confusions": []
+  },
+  "decisions": {
+    "verdicts": {
+      "deferred": 2867,
+      "correct": 4108,
+      "wrong": 25
+    },
+    "accuracy_including_deferrals": 0.587,
+    "accuracy_when_decisive": 0.994,
+    "deferral_rate": 0.41,
+    "auto_resolution_rate": 0.417,
+    "actions": {
+      "escalate_to_analyst": 1947,
+      "request_more_evidence": 2134,
+      "auto_approve": 2319,
+      "represent_chargeback": 516,
+      "auto_deny": 84
+    }
+  },
+  "integrity": {
+    "friendly_fraud_suspects": 424,
+    "flagged_or_escalated": 424,
+    "detection_rate": 1.0
+  },
+  "timing": {
+    "mean_s": 0.026,
+    "p95_s": 0.043
+  },
+  "per_category": {
+    "AR-01": {
+      "deferred": 146,
+      "correct": 75
+    },
+    "AR-02": {
+      "deferred": 133,
+      "correct": 41
+    },
+    "AR-03": {
+      "deferred": 74,
+      "correct": 34
+    },
+    "BA-01": {
+      "correct": 451,
+      "deferred": 54
+    },
+    "BA-02": {
+      "correct": 230,
+      "deferred": 31
+    },
+    "BA-03": {
+      "deferred": 78,
+      "correct": 32
+    },
+    "BA-04": {
+      "correct": 333,
+      "deferred": 28
+    },
+    "BA-05": {
+      "deferred": 19,
+      "correct": 46
+    },
+    "BA-06": {
+      "correct": 99,
+      "deferred": 15
+    },
+    "BA-07": {
+      "correct": 99,
+      "deferred": 12
+    },
+    "BA-08": {
+      "deferred": 83,
+      "correct": 39
+    },
+    "CR-01": {
+      "correct": 192,
+      "deferred": 127
+    },
+    "CR-02": {
+      "correct": 187,
+      "deferred": 23
+    },
+    "CR-03": {
+      "correct": 337,
+      "deferred": 47
+    },
+    "CR-04": {
+      "deferred": 168,
+      "correct": 81
+    },
+    "CR-05": {
+      "correct": 51,
+      "deferred": 74
+    },
+    "CR-06": {
+      "correct": 66,
+      "deferred": 57
+    },
+    "NR-01": {
+      "deferred": 247,
+      "correct": 328
+    },
+    "NR-02": {
+      "correct": 166,
+      "deferred": 18
+    },
+    "NR-03": {
+      "correct": 54,
+      "deferred": 129
+    },
+    "NR-04": {
+      "correct": 153,
+      "deferred": 24
+    },
+    "NR-05": {
+      "correct": 61,
+      "deferred": 62
+    },
+    "QD-01": {
+      "correct": 326,
+      "deferred": 168,
+      "wrong": 19
+    },
+    "QD-02": {
+      "deferred": 170,
+      "correct": 60
+    },
+    "QD-03": {
+      "correct": 87,
+      "deferred": 219
+    },
+    "QD-04": {
+      "deferred": 97,
+      "correct": 44
+    },
+    "QD-05": {
+      "deferred": 66,
+      "correct": 114
+    },
+    "QD-06": {
+      "correct": 28,
+      "deferred": 83,
+      "wrong": 6
+    },
+    "SP-01": {
+      "deferred": 76,
+      "correct": 40
+    },
+    "SP-02": {
+      "deferred": 80,
+      "correct": 30
+    },
+    "SP-03": {
+      "correct": 32,
+      "deferred": 92
+    },
+    "SP-04": {
+      "deferred": 36,
+      "correct": 23
+    },
+    "SP-05": {
+      "correct": 26,
+      "deferred": 35
+    },
+    "SP-06": {
+      "correct": 20,
+      "deferred": 41
+    },
+    "SP-07": {
+      "deferred": 42,
+      "correct": 17
+    },
+    "SP-08": {
+      "deferred": 13,
+      "correct": 106
+    }
+  },
+  "fairness": {
+    "counterfactual_sample": 200,
+    "outcome_changed": 0,
+    "invariance_rate": 1.0,
+    "changed_cases": []
+  }
+}
